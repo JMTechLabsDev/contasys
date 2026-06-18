@@ -524,22 +524,22 @@ creado_en timestamptz
 
 ---
 
-### FASE 4 — Gestión de Clientes
+### FASE 4 — Gestión de Clientes ✅
 **Duración estimada: 4-5 días**
 
-- [ ] Listado de clientes con paginación
-- [ ] Búsqueda avanzada y filtros
+- [x] Listado de clientes con paginación
+- [x] Búsqueda avanzada y filtros
 - [ ] Etiquetas de clientes
-- [ ] Formulario crear cliente (validación Zod + RHF)
-- [ ] Formulario editar cliente
-- [ ] Eliminar cliente (soft delete)
-- [ ] Perfil de cliente: historial facturas
-- [ ] Perfil de cliente: historial pagos
-- [ ] Perfil de cliente: saldo pendiente
-- [ ] Perfil de cliente: última compra
+- [x] Formulario crear cliente (validación Zod)
+- [x] Formulario editar cliente
+- [x] Eliminar cliente (soft delete)
+- [x] Perfil de cliente: historial facturas
+- [x] Perfil de cliente: historial pagos
+- [x] Perfil de cliente: saldo pendiente
+- [x] Perfil de cliente: última compra
 - [ ] Importar clientes desde CSV
-- [ ] Exportar clientes a Excel/CSV
-- [ ] RLS: solo ver clientes de la empresa activa
+- [x] Exportar clientes a CSV
+- [x] RLS: solo ver clientes de la empresa activa
 
 ---
 
