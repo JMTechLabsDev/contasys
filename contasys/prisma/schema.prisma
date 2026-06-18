@@ -90,7 +90,7 @@ model Empresa {
   provincia          String?
   regimenTributario  String?         @map("regimen_tributario")
   tipoContribuyente  String?         @map("tipo_contribuyente")
-  ambiente           Ambiente        @default(produccion)
+  ambiente           Ambiente        @default(pruebas)
   estado             EstadoEmpresa   @default(prueba)
   creadoEn           DateTime        @default(now()) @map("creado_en")
 
