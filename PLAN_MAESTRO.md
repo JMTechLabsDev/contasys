@@ -567,8 +567,19 @@ creado_en timestamptz
 
 ---
 
-### FASE 6 — Módulo de Facturación
-**Duración estimada: 8-10 días**
+### FASE 6 — Módulo de Facturación + SRI
+**Duración estimada: 10-12 días**
+
+**Estrategia:**
+1. Crear módulo XML (generación de comprobantes)
+2. Crear módulo de firmado (certificado .p12)
+3. Mockear respuestas del SRI (ambiente pruebas simulado)
+4. Probar toda la UX (flujo completo sin SRI real)
+5. Desplegar
+6. Cuando existan clientes reales → probar con firma real en ambiente de pruebas SRI
+7. Finalmente pasar a producción
+
+**Nota:** No requiere certificado SRI personal del desarrollador. Los clientes suben su propia firma. Para desarrollo se usa certificado de pruebas del SRI o firma mockeada.
 
 - [ ] Listado de facturas con estados y filtros
 - [ ] Formulario de nueva factura (líneas dinámicas)
@@ -592,10 +603,13 @@ creado_en timestamptz
 - [ ] Notas de débito
 - [ ] Retenciones
 - [ ] Guías de remisión
-- [ ] Historial de autorizaciones SRI
-- [ ] Historial de rechazos SRI
-- [ ] Reenvío automático al SRI
-- [ ] Generación de XML para SRI (estructura RIDE)
+- [ ] Generación XML factura (clave acceso, importes, impuestos, etc.)
+- [ ] Módulo de firmado electrónico (librería XML-DSig)
+- [ ] API mock SRI (autorización simulada)
+- [ ] UI: formulario de configuración SRI (certificado, clave, ambiente)
+- [ ] UI: historial de envíos y errores
+- [ ] Reintentar comprobantes rechazados
+- [ ] Integración real SRI (ambiente pruebas → producción)
 - [ ] RLS: solo ver facturas de la empresa activa
 
 ---
