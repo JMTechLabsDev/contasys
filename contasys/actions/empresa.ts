@@ -43,7 +43,7 @@ export async function crearEmpresa(_prevState: EmpresaState, formData: FormData)
           direccion: data.direccion || null,
           ciudad: data.ciudad || null,
           provincia: data.provincia || null,
-          ambiente: "produccion",
+          ambiente: "pruebas",
           estado: "prueba",
         },
       }),
