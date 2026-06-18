@@ -136,6 +136,7 @@ model Cliente {
   direccion           String?
   ciudad              String?
   provincia           String?
+  etiquetas           String[] @default([])
   activo              Boolean  @default(true)
   creadoEn            DateTime @default(now()) @map("creado_en")
 

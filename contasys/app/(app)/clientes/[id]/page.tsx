@@ -67,6 +67,15 @@ export default async function ClienteDetailPage({
         <div>
           <h1 className="text-3xl font-bold">{cliente.nombre}</h1>
           <p className="text-muted-foreground">{cliente.identificacion}</p>
+          {cliente.etiquetas && cliente.etiquetas.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-2">
+              {cliente.etiquetas.map((t: string) => (
+                <span key={t} className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
         <form action={eliminarCliente}>
           <input type="hidden" name="id" value={cliente.id} />
@@ -146,6 +155,7 @@ export default async function ClienteDetailPage({
             direccion: cliente.direccion,
             ciudad: cliente.ciudad,
             provincia: cliente.provincia,
+            etiquetas: cliente.etiquetas,
           }}
         />
       </div>

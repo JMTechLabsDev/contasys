@@ -44,6 +44,7 @@ export function ClientesTable({
               <TableHead>Nombre</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Teléfono</TableHead>
+              <TableHead>Etiquetas</TableHead>
               <TableHead>Ciudad</TableHead>
               <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
@@ -51,7 +52,7 @@ export function ClientesTable({
           <TableBody>
             {clientes.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
+                <TableCell colSpan={7} className="text-center py-8 text-muted-foreground">
                   {query
                     ? `No se encontraron clientes para "${query}"`
                     : "No hay clientes registrados. Crea tu primer cliente."}
@@ -59,13 +60,26 @@ export function ClientesTable({
               </TableRow>
             ) : (
               clientes.map((c) => (
-                <TableRow key={c.id}>
-                  <TableCell className="font-mono text-xs">{c.identificacion}</TableCell>
-                  <TableCell className="font-medium">{c.nombre}</TableCell>
-                  <TableCell>{c.email || "—"}</TableCell>
-                  <TableCell>{c.telefono || "—"}</TableCell>
-                  <TableCell>{c.ciudad || "—"}</TableCell>
-                  <TableCell className="text-right">
+                  <TableRow key={c.id}>
+                    <TableCell className="font-mono text-xs">{c.identificacion}</TableCell>
+                    <TableCell className="font-medium">{c.nombre}</TableCell>
+                    <TableCell>{c.email || "—"}</TableCell>
+                    <TableCell>{c.telefono || "—"}</TableCell>
+                    <TableCell>
+                      {c.etiquetas && c.etiquetas.length > 0 ? (
+                        <div className="flex flex-wrap gap-1">
+                          {c.etiquetas.map((t: string) => (
+                            <span key={t} className="rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-muted-foreground">—</span>
+                      )}
+                    </TableCell>
+                    <TableCell>{c.ciudad || "—"}</TableCell>
+                    <TableCell className="text-right">
                     <Link
                       href={`/clientes/${c.id}`}
                       className="inline-flex items-center gap-1 text-sm text-primary hover:underline"

@@ -65,6 +65,13 @@ export default async function ClientesPage({
         </div>
         <div className="flex items-center gap-2">
           <Link
+            href="/clientes/importar"
+            className="inline-flex items-center gap-2 rounded-lg border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent transition-colors"
+          >
+            <Upload className="h-4 w-4" />
+            Importar
+          </Link>
+          <Link
             href="/api/clientes/exportar"
             className="inline-flex items-center gap-2 rounded-lg border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent transition-colors"
           >

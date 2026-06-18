@@ -31,10 +31,22 @@ async function getEmpresaId(): Promise<string | null> {
   return eu?.empresaId ?? null;
 }
 
+function parseEtiquetas(formData: FormData): string[] {
+  try {
+    const raw = formData.get("etiquetas");
+    if (!raw || typeof raw !== "string") return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.filter((e): e is string => typeof e === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 export async function crearCliente(
   _prevState: ClienteState | null,
   formData: FormData,
 ): Promise<ClienteState> {
+  const etiquetas = parseEtiquetas(formData);
   const parsed = clienteSchema.safeParse({
     tipoIdentificacion: formData.get("tipoIdentificacion"),
     identificacion: formData.get("identificacion"),
@@ -45,6 +57,7 @@ export async function crearCliente(
     direccion: formData.get("direccion"),
     ciudad: formData.get("ciudad"),
     provincia: formData.get("provincia"),
+    etiquetas,
   });
 
   if (!parsed.success) {
@@ -79,6 +92,7 @@ export async function editarCliente(
   const id = formData.get("id") as string;
   if (!id) return { error: "ID de cliente requerido" };
 
+  const etiquetas = parseEtiquetas(formData);
   const parsed = clienteSchema.safeParse({
     tipoIdentificacion: formData.get("tipoIdentificacion"),
     identificacion: formData.get("identificacion"),
@@ -89,6 +103,7 @@ export async function editarCliente(
     direccion: formData.get("direccion"),
     ciudad: formData.get("ciudad"),
     provincia: formData.get("provincia"),
+    etiquetas,
   });
 
   if (!parsed.success) {

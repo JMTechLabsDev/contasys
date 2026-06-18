@@ -529,7 +529,7 @@ creado_en timestamptz
 
 - [x] Listado de clientes con paginación
 - [x] Búsqueda avanzada y filtros
-- [ ] Etiquetas de clientes
+- [x] Etiquetas de clientes
 - [x] Formulario crear cliente (validación Zod)
 - [x] Formulario editar cliente
 - [x] Eliminar cliente (soft delete)
@@ -537,9 +537,16 @@ creado_en timestamptz
 - [x] Perfil de cliente: historial pagos
 - [x] Perfil de cliente: saldo pendiente
 - [x] Perfil de cliente: última compra
-- [ ] Importar clientes desde CSV
+- [x] Importar clientes desde CSV
 - [x] Exportar clientes a CSV
 - [x] RLS: solo ver clientes de la empresa activa
+
+### FASE 4b — Configuración Supabase (contasys schema) ✅
+
+- [x] Schema `contasys` con 14 tablas
+- [x] RLS policies para todas las tablas
+- [x] Trigger auth → contasys.usuarios
+- [x] Helper functions (usuario_empresa_ids, usuario_tiene_rol, usuario_en_empresa)
 
 ---
 

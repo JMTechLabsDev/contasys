@@ -10,6 +10,14 @@ export const clienteSchema = z.object({
   direccion: z.string().optional().or(z.literal("")),
   ciudad: z.string().optional().or(z.literal("")),
   provincia: z.string().optional().or(z.literal("")),
+  etiquetas: z.array(z.string()).default([]),
 });
+
+export const importarClientesSchema = z.array(clienteSchema.omit({ etiquetas: true }).extend({
+  etiquetas: z.string().default(""),
+}).transform((d) => ({
+  ...d,
+  etiquetas: d.etiquetas ? d.etiquetas.split(",").map((e: string) => e.trim()).filter(Boolean) : [],
+})));
 
 export type ClienteInput = z.infer<typeof clienteSchema>;

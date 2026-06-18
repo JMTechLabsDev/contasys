@@ -1,11 +1,55 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { crearCliente, editarCliente, type ClienteState } from "@/actions/cliente";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { X } from "lucide-react";
+
+function TagInput({ defaultTags = [] }: { defaultTags?: string[] }) {
+  const [tags, setTags] = useState<string[]>(defaultTags);
+  const [input, setInput] = useState("");
+
+  const addTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    const val = input.trim();
+    if (val && !tags.includes(val)) {
+      setTags([...tags, val]);
+    }
+    setInput("");
+  };
+
+  const removeTag = (tag: string) => setTags(tags.filter((t) => t !== tag));
+
+  return (
+    <div className="space-y-2">
+      <Label>Etiquetas</Label>
+      <input type="hidden" name="etiquetas" value={JSON.stringify(tags)} />
+      <div className="flex flex-wrap gap-1.5 mb-1.5">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+          >
+            {tag}
+            <button type="button" onClick={() => removeTag(tag)} className="hover:text-destructive">
+              <X className="h-3 w-3" />
+            </button>
+          </span>
+        ))}
+      </div>
+      <Input
+        placeholder="Escribe y presiona Enter para agregar..."
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={addTag}
+      />
+    </div>
+  );
+}
 
 export function ClienteForm({
   defaultValues,
@@ -22,6 +66,7 @@ export function ClienteForm({
     direccion: string | null;
     ciudad: string | null;
     provincia: string | null;
+    etiquetas?: string[];
   };
   isEditing?: boolean;
 }) {
@@ -135,6 +180,8 @@ export function ClienteForm({
           />
         </div>
       </div>
+
+      <TagInput defaultTags={defaultValues?.etiquetas || []} />
 
       <div className="flex gap-3">
         <Button type="submit" disabled={pending}>

@@ -20,7 +20,7 @@ export async function GET() {
     orderBy: { nombre: "asc" },
   });
 
-  const header = "Identificacion,Nombre,RazonSocial,Email,Telefono,Direccion,Ciudad,Provincia";
+  const header = "Identificacion,Nombre,RazonSocial,Email,Telefono,Direccion,Ciudad,Provincia,Etiquetas";
   const rows = clientes.map((c) =>
     [
       c.identificacion,
@@ -31,6 +31,7 @@ export async function GET() {
       c.direccion ? `"${c.direccion}"` : "",
       c.ciudad || "",
       c.provincia || "",
+      c.etiquetas ? `"${c.etiquetas.join(", ")}"` : "",
     ].join(","),
   );
 
