@@ -608,6 +608,9 @@ creado_en timestamptz
 - [ ] API mock SRI (autorización simulada)
 - [ ] UI: formulario de configuración SRI (certificado, clave, ambiente)
 - [ ] UI: historial de envíos y errores
+- [ ] Historial de autorizaciones SRI
+- [ ] Historial de rechazos SRI
+- [ ] Reenvío automático al SRI
 - [ ] Reintentar comprobantes rechazados
 - [ ] Integración real SRI (ambiente pruebas → producción)
 - [ ] RLS: solo ver facturas de la empresa activa
