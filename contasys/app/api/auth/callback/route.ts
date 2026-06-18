@@ -1,0 +1,52 @@
+import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
+
+export async function GET(request: Request) {
+  const { searchParams, origin } = new URL(request.url);
+  const code = searchParams.get("code");
+  const next = searchParams.get("next") ?? "/verificar";
+
+  if (code) {
+    const supabase = await createClient();
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+    if (!error) {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (user?.user_metadata?.nombre) {
+        const { createAdminClient } = await import("@/lib/supabase/admin");
+        const adminClient = createAdminClient();
+
+        const { prisma } = await import("@/lib/prisma/client");
+
+        await prisma.usuario.upsert({
+          where: { id: user.id },
+          update: {
+            nombre: user.user_metadata.nombre,
+            email: user.email!,
+          },
+          create: {
+            id: user.id,
+            nombre: user.user_metadata.nombre,
+            email: user.email!,
+          },
+        });
+      }
+
+      const forwardedHost = request.headers.get("x-forwarded-host");
+      const isLocalEnv = process.env.NODE_ENV === "development";
+
+      if (isLocalEnv) {
+        return NextResponse.redirect(`${origin}${next}`);
+      }
+      if (forwardedHost) {
+        return NextResponse.redirect(`https://${forwardedHost}${next}`);
+      }
+      return NextResponse.redirect(`${origin}${next}`);
+    }
+  }
+
+  return NextResponse.redirect(`${origin}/login?error=code_exchange_failed`);
+}
