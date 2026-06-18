@@ -13,12 +13,18 @@ import {
   CreditCard as SubIcon,
   Menu,
   X,
+  Repeat,
+  Percent,
+  Truck,
 } from "lucide-react";
 import { useState } from "react";
 
 const links = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/facturas", label: "Facturas", icon: FileText },
+  { href: "/facturas/recurrentes", label: "Recurrentes", icon: Repeat },
+  { href: "/facturas/retenciones", label: "Retenciones", icon: Percent },
+  { href: "/facturas/guias", label: "Guías Rem.", icon: Truck },
   { href: "/clientes", label: "Clientes", icon: Users },
   { href: "/productos", label: "Productos", icon: Package },
   { href: "/cuentas-cobrar", label: "CxC", icon: CreditCard },

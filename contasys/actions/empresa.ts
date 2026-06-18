@@ -3,34 +3,17 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma/client";
 import { empresaSchema } from "@/lib/validations/auth";
 
-export type EmpresaState = {
-  error?: string;
-};
+export type EmpresaState = { error?: string } | null;
 
-export async function cambiarEmpresa(formData: FormData) {
-  const empresaId = formData.get("empresaId") as string;
-  if (!empresaId) return;
+export async function crearEmpresa(_prevState: EmpresaState, formData: FormData): Promise<EmpresaState> {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: "No autenticado" };
 
-  const cookieStore = await cookies();
-  cookieStore.set("empresa_activa", empresaId, {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-    sameSite: "lax",
-  });
-
-  revalidatePath("/", "layout");
-  redirect("/dashboard");
-}
-
-export async function crearEmpresa(
-  _prevState: EmpresaState | null,
-  formData: FormData,
-): Promise<EmpresaState> {
   const parsed = empresaSchema.safeParse({
     nombre: formData.get("nombre"),
     razonSocial: formData.get("razonSocial"),
@@ -46,74 +29,52 @@ export async function crearEmpresa(
     return { error: parsed.error.issues[0].message };
   }
 
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const data = parsed.data;
 
-  if (!user) {
-    return { error: "No autorizado" };
-  }
+  try {
+    const [empresa] = await Promise.all([
+      prisma.empresa.create({
+        data: {
+          nombre: data.nombre,
+          razonSocial: data.razonSocial,
+          ruc: data.ruc,
+          email: data.email || null,
+          telefono: data.telefono || null,
+          direccion: data.direccion || null,
+          ciudad: data.ciudad || null,
+          provincia: data.provincia || null,
+          ambiente: "produccion",
+          estado: "prueba",
+        },
+      }),
+    ]);
 
-  const existeRuc = await prisma.empresa.findUnique({
-    where: { ruc: parsed.data.ruc },
-  });
+    await prisma.empresaUsuario.create({
+      data: {
+        empresaId: empresa.id,
+        usuarioId: user.id,
+        rol: "propietario",
+      },
+    });
 
-  if (existeRuc) {
-    return { error: "Ya existe una empresa registrada con este RUC" };
-  }
-
-  const empresa = await prisma.empresa.create({
-    data: {
-      nombre: parsed.data.nombre,
-      razonSocial: parsed.data.razonSocial,
-      ruc: parsed.data.ruc,
-      email: parsed.data.email || null,
-      telefono: parsed.data.telefono || null,
-      direccion: parsed.data.direccion || null,
-      ciudad: parsed.data.ciudad || null,
-      provincia: parsed.data.provincia || null,
-      estado: "prueba",
-    },
-  });
-
-  await prisma.usuario.upsert({
-    where: { id: user.id },
-    update: { nombre: user.user_metadata?.nombre || "" },
-    create: {
-      id: user.id,
-      nombre: user.user_metadata?.nombre || "",
-      email: user.email!,
-    },
-  });
-
-  await prisma.empresaUsuario.create({
-    data: {
-      empresaId: empresa.id,
-      usuarioId: user.id,
-      rol: "propietario",
-      aceptadoEn: new Date(),
-    },
-  });
-
-  const planEmprendedor = await prisma.plan.findFirst({
-    where: { nombre: "Emprendedor", activo: true },
-    orderBy: { precioMensual: "asc" },
-  });
-
-  if (planEmprendedor) {
     await prisma.suscripcion.create({
       data: {
         empresaId: empresa.id,
-        planId: planEmprendedor.id,
+        planId: null as any,
         estado: "trial",
         periodo: "mensual",
-        fechaInicio: new Date(),
         fechaFin: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
       },
     });
+  } catch (err) {
+    if (err instanceof Error && err.message.includes("Unique constraint")) {
+      return { error: "El RUC ya está registrado por otra empresa" };
+    }
+    return { error: "Error al crear la empresa" };
   }
 
-  revalidatePath("/", "layout");
+  revalidatePath("/onboarding");
   redirect("/dashboard");
 }
+
+

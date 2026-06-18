@@ -581,39 +581,41 @@ creado_en timestamptz
 
 **Nota:** No requiere certificado SRI personal del desarrollador. Los clientes suben su propia firma. Para desarrollo se usa certificado de pruebas del SRI o firma mockeada.
 
-- [ ] Listado de facturas con estados y filtros
-- [ ] Formulario de nueva factura (líneas dinámicas)
-- [ ] Búsqueda de cliente en tiempo real
-- [ ] Búsqueda de producto en tiempo real
-- [ ] Cálculo automático: subtotal, IVA, descuento, total
-- [ ] Selección de método de pago
-- [ ] Observaciones y notas internas
-- [ ] Guardar como borrador
-- [ ] Numeración automática de facturas
-- [ ] Duplicar factura
-- [ ] Facturación recurrente (programar)
-- [ ] Facturación rápida (modo simplificado)
-- [ ] Vista previa de factura (modal)
-- [ ] Generación de PDF profesional
-- [ ] Descarga de PDF
-- [ ] Impresión de factura
-- [ ] Envío de factura por email al cliente
-- [ ] Estados de factura (borrador → pendiente → autorizado...)
-- [ ] Notas de crédito
-- [ ] Notas de débito
-- [ ] Retenciones
-- [ ] Guías de remisión
-- [ ] Generación XML factura (clave acceso, importes, impuestos, etc.)
-- [ ] Módulo de firmado electrónico (librería XML-DSig)
-- [ ] API mock SRI (autorización simulada)
-- [ ] UI: formulario de configuración SRI (certificado, clave, ambiente)
-- [ ] UI: historial de envíos y errores
-- [ ] Historial de autorizaciones SRI
-- [ ] Historial de rechazos SRI
-- [ ] Reenvío automático al SRI
-- [ ] Reintentar comprobantes rechazados
-- [ ] Integración real SRI (ambiente pruebas → producción)
-- [ ] RLS: solo ver facturas de la empresa activa
+- [x] Listado de facturas con estados y filtros
+- [x] Formulario de nueva factura (líneas dinámicas)
+- [x] Búsqueda de cliente en tiempo real
+- [x] Búsqueda de producto en tiempo real
+- [x] Cálculo automático: subtotal, IVA, descuento, total
+- [x] Selección de método de pago
+- [x] Observaciones y notas internas
+- [x] Guardar como borrador
+- [x] Numeración automática de facturas
+- [x] Duplicar factura
+- [x] Facturación recurrente — modelo Recurrencia + RecurrenciaItem, CRUD completo, ejecución manual, cron API
+- [x] Facturación rápida (modo simplificado con un solo item)
+- [x] Vista previa de factura (modal)
+- [x] Generación de PDF profesional
+- [x] Descarga de PDF
+- [x] Impresión de factura
+- [x] Envío de factura por email al cliente (SMTP / Resend / consola dev)
+- [x] Estados de factura (borrador → pendiente → autorizado...)
+- [x] Notas de crédito (desde factura autorizada)
+- [x] Notas de débito
+- [x] Retenciones — modelo con ejercicioFiscal, impuestoRetenido (IVA/ISR), porcentajeRetener, valorRetenido, baseImponibleRet; prefijo RET-; formulario + listado paginado
+- [x] Guías de remisión — modelo con puntoPartida, puntoDestino, transportista, placa, fechaInicioTransporte, destinatario; prefijo GUI-; formulario + listado paginado
+- [x] Generación XML factura (clave acceso 49 dígitos, importes, impuestos, infoTributaria, infoFactura, detalles)
+- [x] Módulo de firmado electrónico (XML-DSig con firma SHA1/SHA256 + envolvente)
+- [x] API mock SRI (autorización simulada con respuesta AUTORIZADO/RECHAZADO)
+- [x] API real SRI via SOAP (endpoints recepción + autorización, pruebas/producción)
+- [x] UI: formulario de configuración SRI (ambiente pruebas/producción, datos fiscales)
+- [x] UI: panel de envío SRI en detalle de factura (enviar, autorizado, rechazado, procesando)
+- [x] Historial visual de autorizaciones SRI
+- [x] Historial visual de rechazos SRI con errores
+- [x] Reenvío automático al SRI (hasta 3 intentos con backoff progresivo)
+- [x] Reintentar comprobantes rechazados (botón en panel)
+- [x] Botones Retención y Guía Rem. desde detalle de factura autorizada + sidebar
+- [x] Integración real SRI (SOAP client con fetch + XML, endpoints pruebas + producción)
+- [x] RLS: solo ver facturas de la empresa activa
 
 ---
 

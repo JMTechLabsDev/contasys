@@ -90,7 +90,7 @@ model Empresa {
   provincia          String?
   regimenTributario  String?         @map("regimen_tributario")
   tipoContribuyente  String?         @map("tipo_contribuyente")
-  ambiente           Ambiente        @default(pruebas)
+  ambiente           Ambiente        @default(produccion)
   estado             EstadoEmpresa   @default(prueba)
   creadoEn           DateTime        @default(now()) @map("creado_en")
 
@@ -104,6 +104,7 @@ model Empresa {
   notificaciones    Notificacion[]
   auditorias        Auditoria[]
   apiKeys           ApiKey[]
+  recurrencias      Recurrencia[]
 
   @@map("empresas")
 }
@@ -141,7 +142,8 @@ model Cliente {
   creadoEn            DateTime @default(now()) @map("creado_en")
 
   empresa   Empresa   @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-  facturas  Factura[]
+  facturas      Factura[]
+  recurrencias  Recurrencia[]
 
   @@map("clientes")
 }
@@ -161,7 +163,8 @@ model Producto {
   creadoEn    DateTime @default(now()) @map("creado_en")
 
   empresa        Empresa        @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-  facturaItems   FacturaItem[]
+  facturaItems       FacturaItem[]
+  recurrenciaItems   RecurrenciaItem[]
 
   @@map("productos")
 }
@@ -186,14 +189,72 @@ model Factura {
   xmlGenerado           String?           @map("xml_generado")
   pdfUrl                String?           @map("pdf_url")
   sriRespuesta          Json?             @map("sri_respuesta")
+
+  facturaReferenciaId   String?           @map("factura_referencia_id")
+  recurrenciaId         String?           @map("recurrencia_id")
+
+  ejercicioFiscal       Int?              @map("ejercicio_fiscal")
+  impuestoRetenido      String?           @map("impuesto_retenido")
+  porcentajeRetener     Decimal?          @db.Decimal(5, 2) @map("porcentaje_retener")
+  valorRetenido         Decimal?          @db.Decimal(10, 2) @map("valor_retenido")
+  baseImponibleRet      Decimal?          @db.Decimal(10, 2) @map("base_imponible_ret")
+
+  puntoPartida          String?           @map("punto_partida")
+  puntoDestino          String?           @map("punto_destino")
+  transportistaNombre   String?           @map("transportista_nombre")
+  transportistaRuc      String?           @map("transportista_ruc")
+  placa                 String?
+  fechaInicioTransporte DateTime?         @map("fecha_inicio_transporte")
+  destinatarioNombre    String?           @map("destinatario_nombre")
+  destinatarioRuc       String?           @map("destinatario_ruc")
+  destinatarioDireccion String?           @map("destinatario_direccion")
+
   creadoEn              DateTime          @default(now()) @map("creado_en")
 
   empresa       Empresa       @relation(fields: [empresaId], references: [id], onDelete: Cascade)
   cliente       Cliente       @relation(fields: [clienteId], references: [id])
   facturaItems  FacturaItem[]
   pagos         Pago[]
+  recurrencia   Recurrencia? @relation(fields: [recurrenciaId], references: [id])
 
   @@map("facturas")
+}
+
+model Recurrencia {
+  id             String   @id @default(uuid())
+  empresaId      String   @map("empresa_id")
+  clienteId      String   @map("cliente_id")
+  frecuencia     String
+  diaEjecucion   Int      @map("dia_ejecucion")
+  proximaEjecucion DateTime? @map("proxima_ejecucion")
+  ultimaEjecucion  DateTime? @map("ultima_ejecucion")
+  metodoPago     String?  @map("metodo_pago")
+  observaciones  String?
+  activa         Boolean  @default(true)
+  creadoEn       DateTime @default(now()) @map("creado_en")
+
+  empresa  Empresa           @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  cliente  Cliente           @relation(fields: [clienteId], references: [id])
+  items    RecurrenciaItem[]
+  facturas Factura[]
+
+  @@map("recurrencias")
+}
+
+model RecurrenciaItem {
+  id             String   @id @default(uuid())
+  recurrenciaId  String   @map("recurrencia_id")
+  descripcion    String
+  cantidad       Decimal  @db.Decimal(10, 2)
+  precioUnitario Decimal  @db.Decimal(10, 2) @map("precio_unitario")
+  descuento      Decimal  @default(0) @db.Decimal(10, 2)
+  impuesto       String   @default("15%")
+  productoId     String?  @map("producto_id")
+
+  recurrencia Recurrencia @relation(fields: [recurrenciaId], references: [id], onDelete: Cascade)
+  producto    Producto?   @relation(fields: [productoId], references: [id])
+
+  @@map("recurrencia_items")
 }
 
 model FacturaItem {
