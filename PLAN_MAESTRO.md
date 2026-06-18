@@ -550,20 +550,20 @@ creado_en timestamptz
 
 ---
 
-### FASE 5 — Gestión de Productos y Servicios
+### FASE 5 — Gestión de Productos y Servicios ✅
 **Duración estimada: 3-4 días**
 
-- [ ] Listado de productos con paginación
-- [ ] Búsqueda y filtros por categoría
-- [ ] Formulario crear producto/servicio
-- [ ] Formulario editar producto
-- [ ] Eliminar producto (soft delete)
-- [ ] Indicador stock (visual: bajo, normal, agotado)
-- [ ] Categorías de productos
-- [ ] Indicadores: más vendidos, menos vendidos
-- [ ] Cálculo de rentabilidad por producto
-- [ ] Importar productos desde CSV
-- [ ] RLS: solo ver productos de la empresa activa
+- [x] Listado de productos con paginación
+- [x] Búsqueda y filtros por categoría
+- [x] Formulario crear producto/servicio
+- [x] Formulario editar producto
+- [x] Eliminar producto (soft delete)
+- [x] Indicador stock (visual: bajo, normal, agotado)
+- [x] Categorías de productos
+- [x] Indicadores: más vendidos, menos vendidos
+- [x] Cálculo de rentabilidad por producto
+- [x] Importar productos desde CSV
+- [x] RLS: solo ver productos de la empresa activa
 
 ---
 
