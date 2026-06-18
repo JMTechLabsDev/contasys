@@ -8,6 +8,7 @@ import { generarXMLFactura } from "@/lib/sri/xml-generator";
 import { enviarComprobanteSRI } from "@/lib/sri/sri-client";
 import { autorizarComprobanteSRI } from "@/lib/sri/mock-api";
 import { firmarXML } from "@/lib/sri/firma-electronica";
+import { decrypt } from "@/lib/encryption";
 
 async function getEmpresaId(): Promise<string | null> {
   const supabase = await createClient();
@@ -88,7 +89,9 @@ export async function enviarFacturaSRI(formData: FormData) {
       serie,
     });
 
-    const xmlFirmado = firmarXML(xml, "", "");
+    const p12Base64 = factura.empresa.p12Cifrado ? decrypt(factura.empresa.p12Cifrado) : "";
+    const claveFirma = factura.empresa.claveFirmaCifrada ? decrypt(factura.empresa.claveFirmaCifrada) : "";
+    const xmlFirmado = firmarXML(xml, p12Base64, claveFirma);
     const claveAcceso = xmlFirmado.match(/<claveAcceso>(\d{49})<\/claveAcceso>/)?.[1] || "";
 
     const ambiente = (process.env.SRI_AMBIENTE || factura.empresa.ambiente) as "pruebas" | "produccion";
