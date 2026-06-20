@@ -27,7 +27,7 @@ const links = [
   { href: "/facturas/guias", label: "Guías Rem.", icon: Truck },
   { href: "/clientes", label: "Clientes", icon: Users },
   { href: "/productos", label: "Productos", icon: Package },
-  { href: "/cuentas-cobrar", label: "CxC", icon: CreditCard },
+  { href: "/cuentas-cobrar", label: "C x Cobrar", icon: CreditCard },
   { href: "/reportes", label: "Reportes", icon: BarChart3 },
   { href: "/suscripcion", label: "Suscripción", icon: SubIcon },
   { href: "/configuracion/empresa", label: "Configuración", icon: Settings },

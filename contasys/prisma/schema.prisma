@@ -187,6 +187,7 @@ model Factura {
   metodoPago            String?           @map("metodo_pago")
   observaciones         String?
   fechaEmision          DateTime          @default(now()) @map("fecha_emision")
+  fechaVencimiento      DateTime?         @map("fecha_vencimiento")
   fechaAutorizacion     DateTime?         @map("fecha_autorizacion")
   xmlGenerado           String?           @map("xml_generado")
   pdfUrl                String?           @map("pdf_url")

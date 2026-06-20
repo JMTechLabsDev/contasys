@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FacturaActions } from "./factura-actions";
 import { FacturaPreview } from "@/components/facturas/factura-preview";
 import { SriPanel } from "@/components/facturas/sri-panel";
+import { PagoDialog } from "@/components/facturas/pago-dialog";
 
 const estadoColor: Record<string, string> = {
   borrador: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
@@ -56,6 +57,16 @@ export default async function FacturaDetailPage({ params }: { params: Promise<{ 
     select: { nombre: true, ruc: true, direccion: true, telefono: true, email: true, ciudad: true },
   });
   if (!empresa) notFound();
+
+  const [pagos] = await Promise.all([
+    prisma.pago.findMany({
+      where: { facturaId: id, empresaId: eu.empresaId },
+      orderBy: { fechaPago: "desc" },
+    }),
+  ]);
+
+  const totalPagado = pagos.reduce((s, p) => s + Number(p.monto), 0);
+  const saldoPendiente = Number(factura.total) - totalPagado;
 
   const formatMoney = (n: number) =>
     `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -185,6 +196,53 @@ export default async function FacturaDetailPage({ params }: { params: Promise<{ 
         }}
         empresa={empresa}
       />
+
+      {factura.estado === "autorizado" && (
+        <div className="rounded-lg border p-6 space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold">Pagos</h2>
+            <PagoDialog facturaId={factura.id} saldo={saldoPendiente} facturaLabel={factura.numeroFactura} />
+          </div>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="text-muted-foreground">Total factura:</span>
+              <span className="ml-2 font-medium">{formatMoney(Number(factura.total))}</span>
+            </div>
+            <div>
+              <span className="text-muted-foreground">Pagado:</span>
+              <span className="ml-2 font-medium text-emerald-600">{formatMoney(totalPagado)}</span>
+            </div>
+            <div>
+              <span className="text-muted-foreground">Saldo pendiente:</span>
+              <span className={`ml-2 font-medium ${saldoPendiente > 0 ? "text-amber-600" : "text-emerald-600"}`}>
+                {formatMoney(saldoPendiente)}
+              </span>
+            </div>
+          </div>
+          {pagos.length > 0 && (
+            <table className="w-full text-sm mt-2">
+              <thead>
+                <tr className="border-b bg-muted/50">
+                  <th className="text-left p-2 font-medium">Fecha</th>
+                  <th className="text-left p-2 font-medium">Monto</th>
+                  <th className="text-left p-2 font-medium">Método</th>
+                  <th className="text-left p-2 font-medium">Referencia</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pagos.map((p) => (
+                  <tr key={p.id} className="border-b">
+                    <td className="p-2">{new Date(p.fechaPago).toLocaleDateString()}</td>
+                    <td className="p-2 font-medium">{formatMoney(Number(p.monto))}</td>
+                    <td className="p-2">{p.metodo || "—"}</td>
+                    <td className="p-2">{p.referencia || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      )}
 
       <SriPanel
         facturaId={factura.id}
