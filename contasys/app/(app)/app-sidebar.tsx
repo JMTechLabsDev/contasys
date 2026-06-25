@@ -42,8 +42,12 @@ const configLinks = [
 
 export function AppSidebar({
   empresaNombre,
+  planNombre,
+  planEstado,
 }: {
   empresaNombre: string;
+  planNombre: string | null;
+  planEstado: string;
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -77,6 +81,11 @@ export function AppSidebar({
           <span className="truncate text-xs text-muted-foreground">
             {empresaNombre}
           </span>
+          {planNombre && (
+            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium shrink-0">
+              {planNombre}
+            </span>
+          )}
         </div>
         <nav className="flex-1 space-y-1 p-3">
           {mainLinks.map((link) => {

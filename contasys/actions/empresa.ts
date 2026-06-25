@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma/client";
 import { empresaSchema } from "@/lib/validations/auth";
 import { empresaUpdateSchema, configuracionSchema, invitarUsuarioSchema } from "@/lib/validations/empresa";
+import { verificarLimiteUsuarios } from "@/lib/plan-limit";
 
 export type EmpresaState = { error?: string } | null;
 
@@ -56,6 +57,9 @@ export async function crearEmpresa(_prevState: EmpresaState, formData: FormData)
   const data = parsed.data;
 
   try {
+    const planDefault = await prisma.plan.findFirst({ where: { activo: true }, orderBy: { precioMensual: "asc" } });
+    if (!planDefault) return { error: "No hay planes disponibles" };
+
     const [empresa] = await Promise.all([
       prisma.empresa.create({
         data: {
@@ -84,7 +88,7 @@ export async function crearEmpresa(_prevState: EmpresaState, formData: FormData)
     await prisma.suscripcion.create({
       data: {
         empresaId: empresa.id,
-        planId: null as any,
+        planId: planDefault.id,
         estado: "trial",
         periodo: "mensual",
         fechaFin: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
@@ -201,6 +205,9 @@ export async function invitarUsuario(_prevState: EmpresaState, formData: FormDat
   });
 
   if (!parsed.success) return { error: parsed.error.issues[0].message };
+
+  const limite = await verificarLimiteUsuarios(empresaId);
+  if (!limite.ok) return { error: limite.mensaje };
 
   const invitado = await prisma.usuario.findUnique({ where: { email: parsed.data.email } });
   if (!invitado) return { error: "No existe un usuario registrado con ese correo electrónico" };
@@ -337,10 +344,13 @@ export async function crearNuevaEmpresa(_prevState: EmpresaState, formData: Form
       data: { empresaId: empresa.id, usuarioId: user.id, rol: "propietario" },
     });
 
+    const planDefault = await prisma.plan.findFirst({ where: { activo: true }, orderBy: { precioMensual: "asc" } });
+    if (!planDefault) return { error: "No hay planes disponibles" };
+
     await prisma.suscripcion.create({
       data: {
         empresaId: empresa.id,
-        planId: null as any,
+        planId: planDefault.id,
         estado: "trial",
         periodo: "mensual",
         fechaFin: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),

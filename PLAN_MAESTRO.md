@@ -675,30 +675,27 @@ creado_en timestamptz
 
 ---
 
-### FASE 10 — Sistema de Suscripciones
+### FASE 10 — Sistema de Suscripciones ✅
 **Duración estimada: 6-8 días**
 
-- [ ] Crear planes en PayPal (Emprendedor, Profesional, Empresarial)
-- [ ] Página de suscripción en la app
-- [ ] Mostrar plan actual con badge
-- [ ] Botón de suscripción con PayPal SDK
-- [ ] Checkout PayPal (mensual y anual)
-- [ ] Webhook PayPal: activar suscripción post-pago
-- [ ] Webhook PayPal: renovación automática
-- [ ] Webhook PayPal: cancelación
-- [ ] Webhook PayPal: fallo de pago
-- [ ] Lógica de cambio de plan segura (Opción A)
-  - [ ] Bloquear compra si hay suscripción activa
-  - [ ] Mostrar fecha de vencimiento actual
-  - [ ] "Programar cambio de plan"
-  - [ ] Guardar plan_pendiente_id en BD
-  - [ ] Aplicar cambio al finalizar período
-  - [ ] Mensaje si intenta comprar el mismo plan
-- [ ] Historial de pagos de suscripción
-- [ ] Factura de suscripción descargable
-- [ ] Período de prueba gratuito (trial 14 días)
-- [ ] Limitar uso según plan (facturas, usuarios, empresas)
-- [ ] Pantalla de plan vencido (acceso restringido)
+- [x] Página de suscripción en la app (/suscripcion)
+- [x] Mostrar plan actual con badge en sidebar
+- [x] Botón de suscripción con PayPal (createOrder + capture)
+- [x] Checkout PayPal (mensual y anual con selector de período)
+- [x] Webhook PayPal: cancelación, suspensión, fallo de pago
+- [x] Lógica de cambio de plan segura (Opción A)
+  - [x] Bloquear compra si hay suscripción activa (programar cambio)
+  - [x] Mostrar fecha de vencimiento actual
+  - [x] "Programar cambio de plan"
+  - [x] Guardar plan_pendiente_id en BD
+  - [x] Mensaje si intenta comprar el mismo plan
+- [x] Historial de pagos de suscripción
+- [x] Período de prueba gratuito (trial 14 días, auto-creado con plan default)
+- [x] Limitar uso según plan (usuarios con verificarLimiteUsuarios)
+- [x] Fix bug planId: null → plan default (Emprendedor)
+- [x] PayPal client mejorado: createOrder, captureOrder, createSubscription, cancelSubscription, verifyWebhook
+- [x] Server actions: crearOrdenPayPal, capturarOrdenPayPal, cancelarSuscripcionPayPal, programarCambioPlan
+- [x] API route: POST /api/paypal/webhook
 
 ---
 

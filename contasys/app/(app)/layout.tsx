@@ -32,6 +32,12 @@ export default async function AppLayout({
     : null;
   const empresaUsuario = activa ?? empresasUsuario[0];
 
+  const suscripcion = await prisma.suscripcion.findFirst({
+    where: { empresaId: empresaUsuario.empresaId },
+    orderBy: { creadoEn: "desc" },
+    include: { plan: { select: { nombre: true } } },
+  });
+
   const notificacionesNoLeidas = await prisma.notificacion.count({
     where: { usuarioId: user.id, leida: false },
   });
@@ -44,7 +50,7 @@ export default async function AppLayout({
 
   return (
     <div className="flex min-h-screen">
-      <AppSidebar empresaNombre={empresaUsuario.empresa.nombre} />
+      <AppSidebar empresaNombre={empresaUsuario.empresa.nombre} planNombre={suscripcion?.plan?.nombre ?? null} planEstado={suscripcion?.estado ?? "trial"} />
       <div className="flex flex-1 flex-col">
         <AppTopbar
           empresaNombre={empresaUsuario.empresa.nombre}
