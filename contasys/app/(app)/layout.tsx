@@ -43,9 +43,9 @@ export default async function AppLayout({
   });
 
   const notificaciones = await prisma.notificacion.findMany({
-    where: { usuarioId: user.id },
+    where: { usuarioId: user.id, empresaId: empresaUsuario.empresaId },
     orderBy: { creadoEn: "desc" },
-    take: 5,
+    take: 20,
   });
 
   return (

@@ -699,19 +699,21 @@ creado_en timestamptz
 
 ---
 
-### FASE 11 — Centro de Notificaciones
+### FASE 11 — Centro de Notificaciones ✅
 **Duración estimada: 2-3 días**
 
-- [ ] Campanita con badge de no leídas
-- [ ] Panel lateral de notificaciones
-- [ ] Notificación: factura rechazada por SRI
-- [ ] Notificación: factura autorizada
-- [ ] Notificación: factura próxima a vencer (cobro)
-- [ ] Notificación: pago recibido
-- [ ] Notificación: usuario invitado
-- [ ] Notificación: suscripción próxima a vencer
-- [ ] Marcar como leída / todas leídas
-- [ ] Eliminar notificación
+- [x] Campanita con badge de no leídas (en topbar)
+- [x] Panel dropdown de notificaciones con acciones
+- [x] Notificación: factura autorizada/rechazada por SRI
+- [x] Notificación: pago recibido
+- [x] Notificación: usuario invitado
+- [x] Notificación: recurrencia ejecutada
+- [x] Marcar como leída (al hacer clic en enlace)
+- [x] Marcar todas como leídas
+- [x] Eliminar notificación individual
+- [x] Fecha relativa en cada notificación
+- [x] Server actions: crearNotificacion, crearNotificacionEmpresa, marcarLeida, marcarTodasLeidas, eliminarNotificacion
+- [x] Layout: notificaciones filtradas por empresaId, take 20
 
 ---
 

@@ -8,6 +8,7 @@ import { generarXMLFactura } from "@/lib/sri/xml-generator";
 import { enviarComprobanteSRI } from "@/lib/sri/sri-client";
 import { autorizarComprobanteSRI } from "@/lib/sri/mock-api";
 import { firmarXML } from "@/lib/sri/firma-electronica";
+import { crearNotificacionEmpresa } from "./notificacion";
 import { decrypt } from "@/lib/encryption";
 
 async function getEmpresaId(): Promise<string | null> {
@@ -126,8 +127,10 @@ export async function enviarFacturaSRI(formData: FormData) {
       updateData.fechaAutorizacion = respuestaSri!.fechaAutorizacion
         ? new Date(respuestaSri!.fechaAutorizacion)
         : new Date();
+      await crearNotificacionEmpresa(empresaId, "sri_autorizado", `Factura #${factura.numeroFactura} autorizada por SRI`, `Comprobante a ${factura.cliente.nombre} fue AUTORIZADO.`, `/facturas/${id}`);
     } else if (respuestaSri!.estado === "RECHAZADO") {
       updateData.estado = "rechazado";
+      await crearNotificacionEmpresa(empresaId, "sri_rechazado", `Factura #${factura.numeroFactura} rechazada por SRI`, `Comprobante a ${factura.cliente.nombre} fue RECHAZADO.`, `/facturas/${id}`);
     }
 
     await prisma.factura.update({ where: { id }, data: updateData as any });

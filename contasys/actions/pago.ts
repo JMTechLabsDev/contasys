@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma/client";
+import { crearNotificacionEmpresa } from "./notificacion";
 
 async function getEmpresaId(): Promise<string | null> {
   const supabase = await createClient();
@@ -51,6 +52,9 @@ export async function registrarPago(formData: FormData) {
       registradoPor: (await (await createClient()).auth.getUser()).data.user?.id ?? "",
     },
   });
+
+  const saldoPendiente = Number(factura.total) - (totalPagado + monto);
+  await crearNotificacionEmpresa(empresaId, "pago_recibido", `Pago registrado $${monto.toFixed(2)}`, saldoPendiente <= 0 ? `Factura #${factura.numeroFactura} cancelada.` : `Factura #${factura.numeroFactura} - Saldo pendiente: $${saldoPendiente.toFixed(2)}`, `/facturas/${facturaId}`);
 
   revalidatePath(`/cuentas-cobrar`);
   revalidatePath(`/facturas/${facturaId}`);

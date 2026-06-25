@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma/client";
 import { empresaSchema } from "@/lib/validations/auth";
 import { empresaUpdateSchema, configuracionSchema, invitarUsuarioSchema } from "@/lib/validations/empresa";
 import { verificarLimiteUsuarios } from "@/lib/plan-limit";
+import { crearNotificacion } from "./notificacion";
 
 export type EmpresaState = { error?: string } | null;
 
@@ -233,6 +234,8 @@ export async function invitarUsuario(_prevState: EmpresaState, formData: FormDat
     accion: "invitar_usuario", recurso: "empresa_usuario", recursoId: invitado.id,
     datosNuevos: { email: parsed.data.email, rol: parsed.data.rol },
   });
+
+  await crearNotificacion({ empresaId, usuarioId: invitado.id, tipo: "usuario_invitado", titulo: "Has sido invitado a una empresa", mensaje: `Has sido agregado a la empresa con rol ${parsed.data.rol}.`, url: "/dashboard" });
 
   revalidatePath("/configuracion/usuarios");
   return null;

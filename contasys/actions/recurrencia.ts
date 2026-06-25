@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma/client";
+import { crearNotificacionEmpresa } from "./notificacion";
 
 export type RecurrenciaActionState = { error?: string; success?: boolean };
 
@@ -36,7 +37,7 @@ export async function crearRecurrencia(
 
   if (!rawItems.length) return { error: "Agrega al menos un item" };
 
-  await prisma.recurrencia.create({
+  const recurrencia = await prisma.recurrencia.create({
     data: {
       empresaId,
       clienteId: formData.get("clienteId") as string,
@@ -194,6 +195,8 @@ export async function ejecutarRecurrencia(id: string): Promise<{ error?: string;
     where: { id },
     data: { ultimaEjecucion: new Date() },
   });
+
+  await crearNotificacionEmpresa(empresaId, "recurrencia_ejecutada", `Factura recurrente #${numeroFactura} generada`, `Se generó una factura por recurrencia ${recurrencia.frecuencia}.`, `/facturas/${factura.id}`);
 
   revalidatePath("/facturas/recurrentes");
   return { facturaId: factura.id };

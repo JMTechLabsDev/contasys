@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma/client";
 import { facturaSchema } from "@/lib/validations/factura";
+import { crearNotificacionEmpresa } from "./notificacion";
 
 export type FacturaState = { error?: string };
 
@@ -137,10 +138,17 @@ export async function actualizarEstadoFactura(formData: FormData) {
   const estadosValidos = ["borrador", "pendiente", "procesando", "autorizado", "rechazado", "anulado"];
   if (!estadosValidos.includes(estado)) return;
 
-  await prisma.factura.updateMany({
+  const factura = await prisma.factura.update({
     where: { id, empresaId },
     data: { estado: estado as any },
+    include: { cliente: { select: { nombre: true } } },
   });
+
+  if (estado === "autorizado") {
+    await crearNotificacionEmpresa(empresaId, "factura_autorizada", `Factura #${factura.numeroFactura} autorizada`, `La factura a ${factura.cliente.nombre} fue autorizada por el SRI.`, `/facturas/${id}`);
+  } else if (estado === "rechazado") {
+    await crearNotificacionEmpresa(empresaId, "factura_rechazada", `Factura #${factura.numeroFactura} rechazada`, `La factura a ${factura.cliente.nombre} fue rechazada por el SRI.`, `/facturas/${id}`);
+  }
 
   revalidatePath("/facturas");
   revalidatePath(`/facturas/${id}`);
