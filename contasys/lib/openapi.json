@@ -1,0 +1,167 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ContaSys API",
+    "description": "API REST pública para integración con ContaSys — Facturación Electrónica Ecuador",
+    "version": "1.0.0",
+    "contact": { "name": "ContaSys", "url": "https://conta-sys.vercel.app" }
+  },
+  "servers": [
+    { "url": "https://conta-sys.vercel.app/api/v1", "description": "Producción" },
+    { "url": "http://localhost:3000/api/v1", "description": "Local" }
+  ],
+  "security": [{ "bearerAuth": [] }],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "API Key", "description": "API Key generada desde Configuración → API Keys" }
+    },
+    "schemas": {
+      "Error": { "type": "object", "properties": { "error": { "type": "string" }, "code": { "type": "string" }, "details": {} } },
+      "Pagination": { "type": "object", "properties": { "page": { "type": "integer" }, "limit": { "type": "integer" }, "total": { "type": "integer" }, "totalPages": { "type": "integer" } } },
+      "Empresa": { "type": "object", "properties": { "id": { "type": "string" }, "nombre": { "type": "string" }, "ruc": { "type": "string" }, "razonSocial": { "type": "string" }, "email": { "type": "string" }, "telefono": { "type": "string" }, "direccion": { "type": "string" }, "ciudad": { "type": "string" }, "provincia": { "type": "string" }, "regimenTributario": { "type": "string" }, "ambiente": { "type": "string" }, "estado": { "type": "string" }, "creadoEn": { "type": "string", "format": "date-time" } } },
+      "Cliente": { "type": "object", "properties": { "id": { "type": "string" }, "tipoIdentificacion": { "type": "string" }, "identificacion": { "type": "string" }, "nombre": { "type": "string" }, "email": { "type": "string" }, "telefono": { "type": "string" }, "direccion": { "type": "string" }, "ciudad": { "type": "string" }, "provincia": { "type": "string" }, "activo": { "type": "boolean" }, "creadoEn": { "type": "string", "format": "date-time" } } },
+      "Producto": { "type": "object", "properties": { "id": { "type": "string" }, "sku": { "type": "string" }, "nombre": { "type": "string" }, "descripcion": { "type": "string" }, "categoria": { "type": "string" }, "precio": { "type": "number" }, "costo": { "type": "number" }, "impuesto": { "type": "string" }, "stock": { "type": "integer" }, "activo": { "type": "boolean" }, "creadoEn": { "type": "string", "format": "date-time" } } },
+      "Factura": { "type": "object", "properties": { "id": { "type": "string" }, "numeroFactura": { "type": "string" }, "tipoComprobante": { "type": "string" }, "estado": { "type": "string" }, "subtotal": { "type": "number" }, "iva": { "type": "number" }, "total": { "type": "number" }, "fechaEmision": { "type": "string", "format": "date-time" }, "cliente": { "type": "object", "properties": { "nombre": { "type": "string" }, "identificacion": { "type": "string" } } } } },
+      "Reporte": { "type": "object", "properties": { "resumen": { "type": "object", "properties": { "totalFacturado": { "type": "number" }, "totalIva": { "type": "number" }, "totalSubtotal": { "type": "number" }, "cantidadFacturas": { "type": "integer" } } }, "clientesActivos": { "type": "integer" }, "productosActivos": { "type": "integer" }, "totalCobrado": { "type": "number" } } }
+    }
+  },
+  "paths": {
+    "/empresas": {
+      "get": {
+        "tags": ["Empresas"],
+        "summary": "Obtener datos de la empresa",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20, "maximum": 100 } }
+        ],
+        "responses": {
+          "200": { "description": "Datos de la empresa", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Empresa" } }, "pagination": { "$ref": "#/components/schemas/Pagination" } } } } } },
+          "401": { "description": "No autorizado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/empresas/{id}": {
+      "get": {
+        "tags": ["Empresas"],
+        "summary": "Obtener empresa por ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Empresa", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Empresa" } } } } } },
+          "404": { "description": "No encontrada" }
+        }
+      }
+    },
+    "/clientes": {
+      "get": {
+        "tags": ["Clientes"],
+        "summary": "Listar clientes",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20, "maximum": 100 } },
+          { "name": "search", "in": "query", "schema": { "type": "string" }, "description": "Búsqueda por nombre, identificación o email" }
+        ],
+        "responses": {
+          "200": { "description": "Lista de clientes", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Cliente" } }, "pagination": { "$ref": "#/components/schemas/Pagination" } } } } } }
+        }
+      },
+      "post": {
+        "tags": ["Clientes"],
+        "summary": "Crear cliente",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["nombre"], "properties": { "nombre": { "type": "string" }, "tipoIdentificacion": { "type": "string", "enum": ["ruc", "cedula", "pasaporte"] }, "identificacion": { "type": "string" }, "email": { "type": "string" }, "telefono": { "type": "string" }, "direccion": { "type": "string" }, "ciudad": { "type": "string" } } } } } },
+        "responses": { "201": { "description": "Cliente creado" }, "400": { "description": "Error de validación" } }
+      }
+    },
+    "/clientes/{id}": {
+      "get": {
+        "tags": ["Clientes"],
+        "summary": "Obtener cliente por ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Cliente" } }
+      },
+      "patch": {
+        "tags": ["Clientes"],
+        "summary": "Actualizar cliente (parcial)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "nombre": { "type": "string" }, "email": { "type": "string" }, "telefono": { "type": "string" }, "direccion": { "type": "string" }, "ciudad": { "type": "string" } } } } } },
+        "responses": { "200": { "description": "Cliente actualizado" } }
+      },
+      "delete": {
+        "tags": ["Clientes"],
+        "summary": "Eliminar cliente (soft delete)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "204": { "description": "Eliminado" } }
+      }
+    },
+    "/productos": {
+      "get": {
+        "tags": ["Productos"],
+        "summary": "Listar productos",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20, "maximum": 100 } },
+          { "name": "search", "in": "query", "schema": { "type": "string" } },
+          { "name": "categoria", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Lista de productos" } }
+      },
+      "post": {
+        "tags": ["Productos"],
+        "summary": "Crear producto",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["nombre"], "properties": { "nombre": { "type": "string" }, "sku": { "type": "string" }, "descripcion": { "type": "string" }, "categoria": { "type": "string" }, "precio": { "type": "number" }, "costo": { "type": "number" }, "impuesto": { "type": "string", "enum": ["0%", "15%", "exento"] }, "stock": { "type": "integer" } } } } } },
+        "responses": { "201": { "description": "Producto creado" } }
+      }
+    },
+    "/productos/{id}": {
+      "get": { "tags": ["Productos"], "summary": "Obtener producto por ID", "security": [{ "bearerAuth": [] }], "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Producto" } } },
+      "patch": { "tags": ["Productos"], "summary": "Actualizar producto (parcial)", "security": [{ "bearerAuth": [] }], "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Producto actualizado" } } },
+      "delete": { "tags": ["Productos"], "summary": "Eliminar producto (soft delete)", "security": [{ "bearerAuth": [] }], "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "204": { "description": "Eliminado" } } }
+    },
+    "/facturas": {
+      "get": {
+        "tags": ["Facturas"],
+        "summary": "Listar facturas",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20, "maximum": 100 } },
+          { "name": "estado", "in": "query", "schema": { "type": "string" }, "description": "borrador, pendiente, autorizado, rechazado, anulado" },
+          { "name": "tipo", "in": "query", "schema": { "type": "string" }, "description": "factura, nota_credito, nota_debito, retencion, guia_remision" },
+          { "name": "desde", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "name": "hasta", "in": "query", "schema": { "type": "string", "format": "date" } }
+        ],
+        "responses": { "200": { "description": "Lista de facturas" } }
+      },
+      "post": {
+        "tags": ["Facturas"],
+        "summary": "Crear factura",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["clienteId", "items"], "properties": { "clienteId": { "type": "string" }, "items": { "type": "array", "items": { "type": "object", "properties": { "descripcion": { "type": "string" }, "cantidad": { "type": "number" }, "precioUnitario": { "type": "number" }, "descuento": { "type": "number" } } } }, "metodoPago": { "type": "string" }, "observaciones": { "type": "string" } } } } } },
+        "responses": { "201": { "description": "Factura creada" } }
+      }
+    },
+    "/facturas/{id}": {
+      "get": { "tags": ["Facturas"], "summary": "Obtener factura por ID", "security": [{ "bearerAuth": [] }], "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Factura con items y cliente" } } }
+    },
+    "/reportes": {
+      "get": {
+        "tags": ["Reportes"],
+        "summary": "Obtener resumen de reportes",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "desde", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "name": "hasta", "in": "query", "schema": { "type": "string", "format": "date" } }
+        ],
+        "responses": { "200": { "description": "Resumen de reportes", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Reporte" } } } } } } }
+      }
+    }
+  }
+}

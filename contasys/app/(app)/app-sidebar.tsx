@@ -16,6 +16,8 @@ import {
   Repeat,
   Percent,
   Truck,
+  KeyRound,
+  BookOpen,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -37,7 +39,9 @@ const configLinks = [
   { href: "/configuracion/usuarios", label: "Usuarios", icon: Users },
   { href: "/configuracion/sri", label: "SRI", icon: FileText },
   { href: "/configuracion/auditoria", label: "Auditoría", icon: BarChart3 },
+  { href: "/configuracion/api-keys", label: "API Keys", icon: KeyRound },
   { href: "/empresa/nueva", label: "+ Nueva Empresa", icon: CreditCard },
+  { href: "/documentacion-api", label: "Docs API", icon: BookOpen },
 ];
 
 export function AppSidebar({

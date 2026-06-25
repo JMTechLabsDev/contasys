@@ -717,22 +717,26 @@ creado_en timestamptz
 
 ---
 
-### FASE 12 — API REST Pública
+### FASE 12 — API REST Pública ✅
 **Duración estimada: 5-6 días**
 
-- [ ] Arquitectura de API (/api/v1/...)
-- [ ] Autenticación por API Key (hash en BD)
-- [ ] Rate Limiting por API Key
-- [ ] Endpoint: listar empresas
-- [ ] Endpoint: CRUD clientes
-- [ ] Endpoint: CRUD productos
-- [ ] Endpoint: CRUD facturas
-- [ ] Endpoint: obtener reportes
-- [ ] Versionado de API (v1)
-- [ ] Logs de solicitudes API
-- [ ] Generación de API Keys desde la app
-- [ ] Revocación de API Keys
-- [ ] Documentación integrada (Swagger / OpenAPI)
+- [x] Arquitectura de API (/api/v1/...)
+- [x] Autenticación por API Key (SHA-256 hash en BD, Bearer Token)
+- [x] Rate Limiting por API Key (60 req/min in-memory con limpieza)
+- [x] Endpoint: GET /api/v1/empresas (listar), GET /empresas/{id}
+- [x] Endpoint: CRUD clientes (GET, POST, PATCH, DELETE)
+- [x] Endpoint: CRUD productos (GET, POST, PATCH, DELETE)
+- [x] Endpoint: CRUD facturas (GET, POST), GET /facturas/{id}
+- [x] Endpoint: GET /api/v1/reportes (resumen ventas, clientes, productos, cobrado)
+- [x] Versionado de API (v1 en URL)
+- [x] Logs de solicitudes (ultimoUso en api_keys)
+- [x] Generación de API Keys desde la app (/configuracion/api-keys)
+- [x] Revocación de API Keys (soft delete con activa=false)
+- [x] Documentación interactiva (/documentacion-api + /api/v1/openapi.json)
+- [x] Respuesta consistente: { data, pagination } en listas, { error, code } en errores
+- [x] HTTP Status Codes correctos (200, 201, 204, 400, 401, 403, 404, 429)
+- [x] Filtros: búsqueda, categoría, estado, fechas, paginación
+- [x] Sidebar: "API Keys" y "Docs API" en sección Configuración
 
 ---
 
