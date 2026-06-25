@@ -633,44 +633,45 @@ creado_en timestamptz
 
 ---
 
-### FASE 8 — Reportes
+### FASE 8 — Reportes ✅
 **Duración estimada: 5-6 días**
 
-- [ ] Reporte ventas diario
-- [ ] Reporte ventas semanal
-- [ ] Reporte ventas mensual
-- [ ] Reporte ventas anual
-- [ ] Reporte top clientes
-- [ ] Reporte clientes inactivos
-- [ ] Reporte ticket promedio
-- [ ] Reporte rentabilidad de productos
-- [ ] Reporte rotación de productos
-- [ ] Reporte IVA (declaración)
-- [ ] Reporte retenciones
-- [ ] Resúmenes fiscales
-- [ ] Exportar a PDF
-- [ ] Exportar a Excel
-- [ ] Exportar a CSV
-- [ ] Filtros de fecha avanzados
+- [x] Reporte ventas diario
+- [x] Reporte ventas semanal
+- [x] Reporte ventas mensual
+- [x] Reporte ventas anual
+- [x] Reporte top clientes
+- [x] Reporte clientes inactivos
+- [x] Reporte ticket promedio
+- [x] Reporte rentabilidad de productos
+- [x] Reporte rotación de productos
+- [x] Reporte IVA (declaración)
+- [x] Reporte retenciones
+- [x] Resúmenes fiscales
+- [x] Exportar a PDF (imprimir)
+- [x] Exportar a CSV
+- [x] Exportar a Excel (CSV)
+- [x] Filtros de fecha avanzados
 
 ---
 
-### FASE 9 — Multiempresa y Configuración
+### FASE 9 — Multiempresa y Configuración ✅
 **Duración estimada: 4-5 días**
 
-- [ ] Crear múltiples empresas desde una cuenta
-- [ ] Cambio de empresa instantáneo (selector en topbar)
-- [ ] Configuración independiente por empresa
-- [ ] Datos completamente aislados por empresa (RLS)
-- [ ] Configuración general de empresa (logo, datos fiscales)
-- [ ] Configuración de numeración de facturas
-- [ ] Configuración de impuestos
-- [ ] Configuración de métodos de pago
-- [ ] Configuración de correo de notificaciones
-- [ ] Gestión de usuarios: invitar colaboradores
-- [ ] Asignación de roles y permisos
-- [ ] Revocar acceso a colaboradores
-- [ ] Auditoría de actividad por empresa
+- [x] Crear múltiples empresas desde una cuenta (/empresa/nueva)
+- [x] Cambio de empresa instantáneo (selector en topbar)
+- [x] Configuración independiente por empresa (config JSON)
+- [x] Datos completamente aislados por empresa (RLS)
+- [x] Configuración general de empresa (nombre, RUC, datos fiscales)
+- [x] Configuración de numeración de facturas (prefijo + secuencia por tipo)
+- [x] Configuración de impuestos (IVA activación)
+- [x] Configuración de métodos de pago
+- [x] Configuración de correo de notificaciones (SMTP)
+- [x] Gestión de usuarios: invitar colaboradores
+- [x] Asignación de roles y permisos (admin, gerente, contador, facturación, vendedor)
+- [x] Revocar acceso a colaboradores
+- [x] Auditoría de actividad por empresa (/configuracion/auditoria)
+- [x] Sidebar: sección Configuración con submenús (Empresa, Usuarios, SRI, Auditoría, + Nueva Empresa)
 
 ---
 

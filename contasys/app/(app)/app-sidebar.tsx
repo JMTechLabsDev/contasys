@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-const links = [
+const mainLinks = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/facturas", label: "Facturas", icon: FileText },
   { href: "/facturas/recurrentes", label: "Recurrentes", icon: Repeat },
@@ -30,7 +30,14 @@ const links = [
   { href: "/cuentas-cobrar", label: "C x Cobrar", icon: CreditCard },
   { href: "/reportes", label: "Reportes", icon: BarChart3 },
   { href: "/suscripcion", label: "Suscripción", icon: SubIcon },
-  { href: "/configuracion/empresa", label: "Configuración", icon: Settings },
+];
+
+const configLinks = [
+  { href: "/configuracion/empresa", label: "Empresa", icon: Settings },
+  { href: "/configuracion/usuarios", label: "Usuarios", icon: Users },
+  { href: "/configuracion/sri", label: "SRI", icon: FileText },
+  { href: "/configuracion/auditoria", label: "Auditoría", icon: BarChart3 },
+  { href: "/empresa/nueva", label: "+ Nueva Empresa", icon: CreditCard },
 ];
 
 export function AppSidebar({
@@ -72,7 +79,28 @@ export function AppSidebar({
           </span>
         </div>
         <nav className="flex-1 space-y-1 p-3">
-          {links.map((link) => {
+          {mainLinks.map((link) => {
+            const isActive = pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                }`}
+              >
+                <link.icon className="h-4 w-4" />
+                {link.label}
+              </Link>
+            );
+          })}
+          <div className="pt-4 pb-1">
+            <p className="px-3 text-xs font-semibold uppercase text-muted-foreground">Configuración</p>
+          </div>
+          {configLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
               <Link

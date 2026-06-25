@@ -93,6 +93,7 @@ model Empresa {
   ambiente           Ambiente        @default(pruebas)
   p12Cifrado         String?         @map("p12_cifrado")
   claveFirmaCifrada  String?         @map("clave_firma_cifrada")
+  configuracion      Json?           @map("configuracion")
   estado             EstadoEmpresa   @default(prueba)
   creadoEn           DateTime        @default(now()) @map("creado_en")
 
