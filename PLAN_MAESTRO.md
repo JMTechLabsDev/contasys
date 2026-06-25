@@ -619,17 +619,17 @@ creado_en timestamptz
 
 ---
 
-### FASE 7 — Cuentas por Cobrar
+### FASE 7 — Cuentas por Cobrar ✅
 **Duración estimada: 3-4 días**
 
-- [ ] Listado facturas pendientes de cobro
-- [ ] Indicadores visuales: al día / próximo a vencer / vencido
-- [ ] Registrar pago manual
-- [ ] Historial de pagos por factura
-- [ ] Recordatorios automáticos (email)
-- [ ] Seguimiento de morosidad
-- [ ] Resumen total de cuentas por cobrar
-- [ ] Filtro por cliente, fecha, monto
+- [x] Listado facturas pendientes de cobro
+- [x] Indicadores visuales: al día / próximo a vencer / vencido
+- [x] Registrar pago manual
+- [x] Historial de pagos por factura
+- [x] Recordatorios automáticos (email)
+- [x] Seguimiento de morosidad
+- [x] Resumen total de cuentas por cobrar
+- [x] Filtro por cliente, fecha, monto
 
 ---
 
