@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import { SwRegister } from "@/components/sw-register";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ContaSys | Facturación Electrónica Ecuador",
-  description:
-    "Sistema SaaS de facturación electrónica y administración comercial para Ecuador. Cumplimiento SRI, multiempresa, multiusuario.",
+  title: { template: "%s | ContaSys", default: "ContaSys | Facturación Electrónica Ecuador" },
+  description: "Sistema SaaS de facturación electrónica y administración comercial para Ecuador. Cumplimiento SRI, multiempresa, multiusuario.",
+  manifest: "/manifest.json",
+  other: { "theme-color": "#2563eb" },
 };
 
 export default function RootLayout({
@@ -38,6 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <SwRegister />
         </ThemeProvider>
       </body>
     </html>

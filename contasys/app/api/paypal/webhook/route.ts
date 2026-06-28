@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma/client";
 import { verifyWebhook, getPayPalAccessToken } from "@/lib/paypal/client";
 
-const PAYPAL_API = process.env.PAYPAL_CLIENT_ID
+const PAYPAL_API = process.env.SRI_AMBIENTE === "produccion"
   ? "https://api-m.paypal.com"
   : "https://api-m.sandbox.paypal.com";
 

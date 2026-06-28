@@ -2,9 +2,13 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma/client";
 import { DollarSign, FileText, Users, CreditCard, TrendingUp, TrendingDown } from "lucide-react";
+import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DashboardCharts } from "./dashboard-charts";
 import { TopProductosTable } from "./top-productos-table";
+
+const DashboardCharts = dynamic(() => import("./dashboard-charts").then((m) => m.DashboardCharts));
+import { TipoCambioWidget } from "./tipo-cambio";
+import { fetchExchangeRates } from "@/lib/exchange-rates";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -37,6 +41,7 @@ export default async function DashboardPage() {
     ventasMensuales,
     clientesPorMes,
     facturacionPeriodo,
+    exchangeRatesResult,
   ] = await Promise.all([
     prisma.factura.aggregate({
       where: { empresaId, estado: "autorizado", fechaEmision: { gte: startOfDay } },
@@ -104,6 +109,7 @@ export default async function DashboardPage() {
       GROUP BY semana
       ORDER BY semana
     `,
+    fetchExchangeRates().catch(() => null),
   ]);
 
   const productoIds = topProductos.map((t) => t.productoId).filter(Boolean) as string[];
@@ -133,6 +139,14 @@ export default async function DashboardPage() {
     semana: `Sem ${f.semana}`,
     total: Number(f.total),
   }));
+
+  const rates = exchangeRatesResult
+    ? [
+        { moneda: "Euro", codigo: "EUR", tasa: exchangeRatesResult.rates.EUR, bandera: "🇪🇺" },
+        { moneda: "Peso Colombiano", codigo: "COP", tasa: exchangeRatesResult.rates.COP, bandera: "🇨🇴" },
+        { moneda: "Sol Peruano", codigo: "PEN", tasa: exchangeRatesResult.rates.PEN, bandera: "🇵🇪" },
+      ]
+    : null;
 
   const formatMoney = (val: unknown) => {
     const n = val != null ? Number(val) : null;
@@ -190,7 +204,14 @@ export default async function DashboardPage() {
         <DashboardCharts ventasMensuales={chartVentas} clientesPorMes={chartClientes} facturacionPeriodo={chartPeriodo} />
       </div>
 
-      <TopProductosTable productos={topProductosData} />
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <TopProductosTable productos={topProductosData} />
+        </div>
+        {rates && (
+          <TipoCambioWidget rates={rates} ultimaActualizacion={exchangeRatesResult!.date} />
+        )}
+      </div>
     </div>
   );
 }

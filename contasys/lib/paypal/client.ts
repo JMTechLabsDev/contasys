@@ -1,4 +1,4 @@
-const PAYPAL_API = process.env.PAYPAL_CLIENT_ID
+const PAYPAL_API = process.env.SRI_AMBIENTE === "produccion"
   ? "https://api-m.paypal.com"
   : "https://api-m.sandbox.paypal.com";
 

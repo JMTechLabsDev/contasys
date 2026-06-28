@@ -7,6 +7,7 @@ import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma/client";
 import { clienteSchema } from "@/lib/validations/cliente";
+import { registrarAuditoria } from "@/lib/audit";
 
 export type ClienteState = {
   error?: string;
@@ -66,6 +67,8 @@ export async function crearCliente(
 
   const empresaId = await getEmpresaId();
   if (!empresaId) return { error: "No autorizado" };
+  const userId = (await (await createClient()).auth.getUser()).data.user?.id;
+  if (!userId) return { error: "No autorizado" };
 
   const exists = await prisma.cliente.findFirst({
     where: { empresaId, identificacion: parsed.data.identificacion, activo: true },
@@ -74,12 +77,14 @@ export async function crearCliente(
     return { error: "Ya existe un cliente activo con esta identificación" };
   }
 
-  await prisma.cliente.create({
+  const cliente = await prisma.cliente.create({
     data: {
       empresaId,
       ...parsed.data,
     },
   });
+
+  await registrarAuditoria({ empresaId, usuarioId: userId, accion: "crear", recurso: "cliente", recursoId: cliente.id, datosNuevos: parsed.data as any });
 
   revalidatePath("/clientes");
   redirect("/clientes");
@@ -112,6 +117,7 @@ export async function editarCliente(
 
   const empresaId = await getEmpresaId();
   if (!empresaId) return { error: "No autorizado" };
+  const userId = (await (await createClient()).auth.getUser()).data.user?.id;
 
   const cliente = await prisma.cliente.findFirst({
     where: { id, empresaId },
@@ -130,18 +136,22 @@ export async function editarCliente(
     return { error: "Otro cliente activo ya usa esta identificación" };
   }
 
-  await prisma.cliente.update({
-    where: { id },
-    data: {
-      ...parsed.data,
-      razonSocial: parsed.data.razonSocial || null,
-      email: parsed.data.email || null,
-      telefono: parsed.data.telefono || null,
-      direccion: parsed.data.direccion || null,
-      ciudad: parsed.data.ciudad || null,
-      provincia: parsed.data.provincia || null,
-    },
-  });
+  const datosNuevos = {
+    ...parsed.data,
+    razonSocial: parsed.data.razonSocial || null,
+    email: parsed.data.email || null,
+    telefono: parsed.data.telefono || null,
+    direccion: parsed.data.direccion || null,
+    ciudad: parsed.data.ciudad || null,
+    provincia: parsed.data.provincia || null,
+  };
+
+  await prisma.cliente.update({ where: { id }, data: datosNuevos });
+
+  if (userId) {
+    const datosAnteriores = { tipoIdentificacion: cliente.tipoIdentificacion, identificacion: cliente.identificacion, nombre: cliente.nombre, email: cliente.email };
+    await registrarAuditoria({ empresaId, usuarioId: userId, accion: "editar", recurso: "cliente", recursoId: id, datosAnteriores: datosAnteriores as any, datosNuevos: datosNuevos as any });
+  }
 
   revalidatePath("/clientes");
   redirect("/clientes");
@@ -154,11 +164,12 @@ export async function eliminarCliente(formData: FormData) {
   const empresaId = await getEmpresaId();
   if (!empresaId) return;
 
-  await prisma.cliente.updateMany({
-    where: { id, empresaId },
-    data: { activo: false },
-  });
+  const userId = (await (await createClient()).auth.getUser()).data.user?.id;
+  await prisma.cliente.updateMany({ where: { id, empresaId }, data: { activo: false } });
+
+  if (userId) {
+    await registrarAuditoria({ empresaId, usuarioId: userId, accion: "eliminar", recurso: "cliente", recursoId: id });
+  }
 
   revalidatePath("/clientes");
-  redirect("/clientes");
 }

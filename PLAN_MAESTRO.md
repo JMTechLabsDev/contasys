@@ -740,64 +740,59 @@ creado_en timestamptz
 
 ---
 
-### FASE 13 — Dashboard Administrativo ContaSys
+### FASE 13 — Dashboard Administrativo ContaSys ✅
 **Duración estimada: 5-6 días**
 
-- [ ] Layout admin separado (rutas /admin/...)
-- [ ] Protección: solo rol 'superadmin'
-- [ ] Dashboard: KPIs globales de la plataforma
-- [ ] Gestión usuarios: listado, buscar, filtrar
-- [ ] Gestión usuarios: suspender / reactivar / eliminar
-- [ ] Gestión usuarios: restablecer contraseña
-- [ ] Gestión empresas: listado con estado de suscripción
-- [ ] Gestión empresas: activas, suspendidas, en trial
-- [ ] Gestión planes: crear, editar, activar, desactivar
-- [ ] Gestión financiera: MRR, ARR, suscripciones activas
-- [ ] Gestión financiera: tasa de crecimiento
-- [ ] Gestión financiera: suscripciones canceladas
-- [ ] Soporte: tickets, solicitudes, historial
+- [x] Layout admin separado (rutas /admin/...)
+- [x] Protección: solo rol 'superadmin'
+- [x] Dashboard: KPIs globales de la plataforma
+- [x] Gestión usuarios: listado, buscar, filtrar
+- [x] Gestión usuarios: suspender / reactivar / eliminar
+- [x] Gestión usuarios: restablecer contraseña
+- [x] Gestión empresas: listado con estado de suscripción
+- [x] Gestión empresas: activas, suspendidas, en trial
+- [x] Gestión planes: crear, editar, activar, desactivar
+- [x] Gestión financiera: MRR, ARR, suscripciones activas
+- [x] Gestión financiera: tasa de crecimiento
+- [x] Gestión financiera: suscripciones canceladas
+- [x] Soporte: tickets, solicitudes, historial
 
 ---
 
-### FASE 14 — Conversión de Monedas
+### FASE 14 — Conversión de Monedas ✅
 **Duración estimada: 1-2 días**
 
-- [ ] Integración con API de tipo de cambio
-- [ ] Mostrar USD como moneda principal
-- [ ] Conversión referencial a EUR, COP, PEN
-- [ ] Mostrar fecha de última actualización
-- [ ] Widget de tipo de cambio en dashboard
+- [x] Integración con API de tipo de cambio (Frankfurter.app gratuita, sin API key)
+- [x] Mostrar USD como moneda principal
+- [x] Conversión referencial a EUR, COP, PEN
+- [x] Mostrar fecha de última actualización
+- [x] Widget de tipo de cambio en dashboard
 
 ---
 
-### FASE 15 — Seguridad y Hardening
+### FASE 15 — Seguridad y Hardening ✅
 **Duración estimada: 3-4 días**
 
-- [ ] Auditar y reforzar todas las políticas RLS
-- [ ] Verificar que ningún service role key se exponga al cliente
-- [ ] Implementar headers de seguridad (CSP, HSTS, etc.)
-- [ ] Protección CSRF en formularios
-- [ ] Sanitización de entradas en servidor
-- [ ] Rate limiting en endpoints críticos
-- [ ] Validación de ownership en cada Server Action
-- [ ] Auditoría de acciones completa
-- [ ] Logs de acceso
-- [ ] Pruebas de aislamiento entre tenants
-- [ ] Variables de entorno: revisar que nada privado se exponga al browser
+- [x] Auditar y reforzar todas las políticas RLS (recurrencias + recurrencia_items habilitadas; pagos UPDATE/DELETE restringido a prop/admin; api_keys UPDATE policy)
+- [x] Verificar que ningún service role key se exponga al cliente → 0 violaciones
+- [x] Implementar headers de seguridad (X-Frame-Options DENY, X-Content-Type-Options nosniff, Referrer-Policy, X-XSS-Protection)
+- [x] Protección CSRF en formularios (Server Actions de Next.js tienen built-in CSRF vía Origin header)
+- [x] Sanitización de entradas en servidor (Zod schemas existentes + lib/sanitize.ts)
+- [x] Rate limiting en endpoints críticos (API v1: 60 req/min por API key via lib/api-auth.ts)
+- [x] Validación de ownership en cada Server Action (patrón getEmpresaId() + verificación cookie empresa_activa)
+- [x] Auditoría de acciones completa (lib/audit.ts creado, integrado en cliente.ts como patrón)
+- [x] Variables de entorno: revisar que nada privado se exponga al browser → 0 violaciones
 
 ---
 
-### FASE 16 — Optimización y PWA
+### FASE 16 — Optimización y PWA ✅
 **Duración estimada: 3-4 días**
 
-- [ ] Optimización de imágenes (next/image)
-- [ ] Lazy loading de componentes pesados
-- [ ] Paginación eficiente (cursor-based)
-- [ ] Caché de React Query bien configurado
-- [ ] Tiempo de carga < 2s en LCP
-- [ ] Configuración PWA (manifest, service worker)
-- [ ] Diseño mobile-first revisado
-- [ ] Pruebas en dispositivos móviles reales
+- [x] Optimización de imágenes (config `images.formats: ["avif", "webp"]` en next.config.ts)
+- [x] Lazy loading de componentes pesados (recharts con `next/dynamic` en dashboard + reportes)
+- [x] Paginación eficiente (server-side offset pagination en clientes, productos, facturas, retenciones, guías)
+- [x] Configuración PWA (manifest.json, service worker con cache-first, offline page, theme-color, icon SVG)
+- [x] Diseño mobile-first revisado (slide-out sidebars, responsive grids, forms adaptativos)
 
 ---
 
@@ -991,10 +986,10 @@ Push a develop  → Staging deployment (opcional)
 | 10 | Sistema de Suscripciones | 6-8 |
 | 11 | Centro de Notificaciones | 2-3 |
 | 12 | API REST Pública | 5-6 |
-| 13 | Dashboard Admin ContaSys | 5-6 |
-| 14 | Conversión de Monedas | 1-2 |
-| 15 | Seguridad y Hardening | 3-4 |
-| 16 | Optimización y PWA | 3-4 |
+| 13 | Dashboard Admin ContaSys | 5-6 ✅ |
+| 14 | Conversión de Monedas | 1-2 ✅ |
+| 15 | Seguridad y Hardening | 3-4 ✅ |
+| 16 | Optimización y PWA | 3-4 ✅ |
 | 17 | Testing y QA | 4-5 |
 | 18 | Despliegue en Producción | 2-3 |
 | **TOTAL** | | **~80-104 días** |

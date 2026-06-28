@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma/client";
 import { cookies } from "next/headers";
-import { ReportesContent } from "./reportes-content";
+
+const ReportesContent = dynamic(() => import("./reportes-content").then((m) => m.ReportesContent));
 
 export default async function ReportesPage() {
   const supabase = await createClient();
