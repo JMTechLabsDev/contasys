@@ -1,0 +1,352 @@
+"filename", "language", "TypeScript", "JSON", "Markdown", "MS SQL", "TypeScript JSX", "JSON with Comments", "JavaScript", "XML", "CSS", "Shell Script", "Python", "HTML", "comment", "blank", "total"
+"d:\Documentos\ContaSys\PLAN_MAESTRO.md", "Markdown", 0, 0, 882, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 1004
+"d:\Documentos\ContaSys\PROGRESO.md", "Markdown", 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 78
+"d:\Documentos\ContaSys\contasys\.agents\skills\api-design-principles\SKILL.md", "Markdown", 0, 0, 79, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 111
+"d:\Documentos\ContaSys\contasys\.agents\skills\api-design-principles\assets\api-design-checklist.md", "Markdown", 0, 0, 115, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 156
+"d:\Documentos\ContaSys\contasys\.agents\skills\api-design-principles\assets\rest-api-template.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 145, 0, 12, 26, 183
+"d:\Documentos\ContaSys\contasys\.agents\skills\api-design-principles\references\details.md", "Markdown", 0, 0, 340, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 414
+"d:\Documentos\ContaSys\contasys\.agents\skills\api-design-principles\references\graphql-schema-design.md", "Markdown", 0, 0, 471, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 584
+"d:\Documentos\ContaSys\contasys\.agents\skills\api-design-principles\references\rest-best-practices.md", "Markdown", 0, 0, 314, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 95, 409
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\SKILL.md", "Markdown", 0, 0, 119, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46, 165
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\scripts\frame-template.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 196, 0, 19, 215
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\scripts\helper.js", "JavaScript", 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 4, 13, 89
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\scripts\server.cjs", "JavaScript", 0, 0, 0, 0, 0, 0, 280, 0, 0, 0, 0, 0, 16, 59, 355
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\scripts\start-server.sh", "Shell Script", 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 0, 0, 30, 17, 149
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\scripts\stop-server.sh", "Shell Script", 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 12, 13, 57
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\spec-document-reviewer-prompt.md", "Markdown", 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 50
+"d:\Documentos\ContaSys\contasys\.agents\skills\brainstorming\visual-companion.md", "Markdown", 0, 0, 214, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 288
+"d:\Documentos\ContaSys\contasys\.agents\skills\canvas-design\SKILL.md", "Markdown", 0, 0, 85, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 130
+"d:\Documentos\ContaSys\contasys\.agents\skills\changelog-generator\SKILL.md", "Markdown", 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 105
+"d:\Documentos\ContaSys\contasys\.agents\skills\error-handling-patterns\SKILL.md", "Markdown", 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 122
+"d:\Documentos\ContaSys\contasys\.agents\skills\error-handling-patterns\references\details.md", "Markdown", 0, 0, 431, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 86, 517
+"d:\Documentos\ContaSys\contasys\.agents\skills\find-skills\SKILL.md", "Markdown", 0, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 143
+"d:\Documentos\ContaSys\contasys\.agents\skills\frontend-design\SKILL.md", "Markdown", 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 56
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\SKILL.md", "Markdown", 0, 0, 327, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 159, 486
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\agents\analyzer.md", "Markdown", 0, 0, 212, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 275
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\agents\comparator.md", "Markdown", 0, 0, 165, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 203
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\agents\grader.md", "Markdown", 0, 0, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 224
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\assets\eval_review.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 131, 0, 16, 147
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\eval-viewer\generate_review.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 386, 0, 21, 65, 472
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\eval-viewer\viewer.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1209, 0, 117, 1326
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\references\schemas.md", "Markdown", 0, 0, 387, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 431
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\aggregate_benchmark.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 312, 0, 22, 68, 402
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\generate_report.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 273, 0, 14, 40, 327
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\improve_description.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192, 0, 11, 45, 248
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\package_skill.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 98, 0, 11, 28, 137
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\quick_validate.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72, 0, 15, 16, 103
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\run_eval.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 257, 0, 9, 45, 311
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\run_loop.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 263, 0, 18, 48, 329
+"d:\Documentos\ContaSys\contasys\.agents\skills\skill-creator\scripts\utils.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37, 0, 1, 10, 48
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\CREATION-LOG.md", "Markdown", 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 120
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\SKILL.md", "Markdown", 0, 0, 220, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 77, 297
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\condition-based-waiting-example.ts", "TypeScript", 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 15, 159
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\condition-based-waiting.md", "Markdown", 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 116
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\defense-in-depth.md", "Markdown", 0, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 123
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\find-polluter.sh", "Shell Script", 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 8, 13, 64
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\root-cause-tracing.md", "Markdown", 0, 0, 130, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 170
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\test-academic.md", "Markdown", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 15
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\test-pressure-1.md", "Markdown", 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 59
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\test-pressure-2.md", "Markdown", 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 69
+"d:\Documentos\ContaSys\contasys\.agents\skills\systematic-debugging\test-pressure-3.md", "Markdown", 0, 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 70
+"d:\Documentos\ContaSys\contasys\.agents\skills\ui-ux-pro-max\SKILL.md", "Markdown", 0, 0, 531, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 659
+"d:\Documentos\ContaSys\contasys\.agents\skills\ui-ux-pro-max\data\_sync_all.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 352, 0, 29, 34, 415
+"d:\Documentos\ContaSys\contasys\.agents\skills\ui-ux-pro-max\scripts\core.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 210, 0, 9, 44, 263
+"d:\Documentos\ContaSys\contasys\.agents\skills\ui-ux-pro-max\scripts\design_system.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 917, 0, 83, 149, 1149
+"d:\Documentos\ContaSys\contasys\.agents\skills\ui-ux-pro-max\scripts\search.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 91, 0, 9, 15, 115
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\AGENTS.md", "Markdown", 0, 0, 2764, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1047, 3811
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\README.md", "Markdown", 0, 0, 91, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 124
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\SKILL.md", "Markdown", 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 150
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\metadata.json", "JSON", 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\_sections.md", "Markdown", 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 47
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\_template.md", "Markdown", 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 29
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\advanced-effect-event-deps.md", "Markdown", 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 57
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\advanced-event-handler-refs.md", "Markdown", 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 56
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\advanced-init-once.md", "Markdown", 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 43
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\advanced-use-latest.md", "Markdown", 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 40
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\async-api-routes.md", "Markdown", 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 39
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\async-cheap-condition-before-await.md", "Markdown", 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 38
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\async-defer-await.md", "Markdown", 0, 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 83
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\async-dependencies.md", "Markdown", 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 52
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\async-parallel.md", "Markdown", 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 29
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\async-suspense-boundaries.md", "Markdown", 0, 0, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 100
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\bundle-analyzable-paths.md", "Markdown", 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 64
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\bundle-barrel-imports.md", "Markdown", 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 61
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\bundle-conditional.md", "Markdown", 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 32
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\bundle-defer-third-party.md", "Markdown", 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 50
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\bundle-dynamic-imports.md", "Markdown", 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 36
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\bundle-preload.md", "Markdown", 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 51
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\client-event-listeners.md", "Markdown", 0, 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 75
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\client-localstorage-schema.md", "Markdown", 0, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 72
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\client-passive-event-listeners.md", "Markdown", 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 49
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\client-swr-dedup.md", "Markdown", 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 57
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-batch-dom-css.md", "Markdown", 0, 0, 91, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 108
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-cache-function-results.md", "Markdown", 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 81
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-cache-property-access.md", "Markdown", 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 29
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-cache-storage.md", "Markdown", 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 71
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-combine-iterations.md", "Markdown", 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 33
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-early-exit.md", "Markdown", 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 51
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-flatmap-filter.md", "Markdown", 0, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 61
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-hoist-regexp.md", "Markdown", 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 46
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-index-maps.md", "Markdown", 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 38
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-length-check-first.md", "Markdown", 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 50
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-min-max-loop.md", "Markdown", 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 83
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-request-idle-callback.md", "Markdown", 0, 0, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 106
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-set-map-lookups.md", "Markdown", 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 25
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\js-tosorted-immutable.md", "Markdown", 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 58
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-activity.md", "Markdown", 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 27
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-animate-svg-wrapper.md", "Markdown", 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 48
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-conditional-render.md", "Markdown", 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 41
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-content-visibility.md", "Markdown", 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 39
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-hoist-jsx.md", "Markdown", 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 47
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-hydration-no-flicker.md", "Markdown", 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 83
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-hydration-suppress-warning.md", "Markdown", 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 31
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-resource-hints.md", "Markdown", 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 86
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-script-defer-async.md", "Markdown", 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 69
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-svg-precision.md", "Markdown", 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 29
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rendering-usetransition-loading.md", "Markdown", 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 76
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-defer-reads.md", "Markdown", 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 40
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-dependencies.md", "Markdown", 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 46
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-derived-state-no-effect.md", "Markdown", 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 41
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-derived-state.md", "Markdown", 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 30
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-functional-setstate.md", "Markdown", 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 75
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-lazy-state-init.md", "Markdown", 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 59
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-memo-with-default-value.md", "Markdown", 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 39
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-memo.md", "Markdown", 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 45
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-move-effect-to-event.md", "Markdown", 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 46
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-no-inline-components.md", "Markdown", 0, 0, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 83
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-simple-expression-in-memo.md", "Markdown", 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 36
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-split-combined-hooks.md", "Markdown", 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 65
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-transitions.md", "Markdown", 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 41
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-use-deferred-value.md", "Markdown", 0, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 60
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\rerender-use-ref-transient-values.md", "Markdown", 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 74
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-after-nonblocking.md", "Markdown", 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 74
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-auth-actions.md", "Markdown", 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 97
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-cache-lru.md", "Markdown", 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 42
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-cache-react.md", "Markdown", 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 77
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-dedup-props.md", "Markdown", 0, 0, 46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 66
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-hoist-static-io.md", "Markdown", 0, 0, 115, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 150
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-no-shared-module-state.md", "Markdown", 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 51
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-parallel-fetching.md", "Markdown", 0, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 84
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-parallel-nested-fetching.md", "Markdown", 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 35
+"d:\Documentos\ContaSys\contasys\.agents\skills\vercel-react-best-practices\rules\server-serialization.md", "Markdown", 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 39
+"d:\Documentos\ContaSys\contasys\.agents\skills\web-artifacts-builder\SKILL.md", "Markdown", 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 74
+"d:\Documentos\ContaSys\contasys\.agents\skills\web-artifacts-builder\scripts\bundle-artifact.sh", "Shell Script", 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 9, 10, 54
+"d:\Documentos\ContaSys\contasys\.agents\skills\web-artifacts-builder\scripts\init-artifact.sh", "Shell Script", 0, 0, 0, 0, 0, 0, 0, 0, 0, 273, 0, 0, 18, 32, 323
+"d:\Documentos\ContaSys\contasys\AGENTS.md", "Markdown", 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"d:\Documentos\ContaSys\contasys\CLAUDE.md", "Markdown", 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"d:\Documentos\ContaSys\contasys\README.md", "Markdown", 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 37
+"d:\Documentos\ContaSys\contasys\actions\admin.ts", "TypeScript", 132, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 161
+"d:\Documentos\ContaSys\contasys\actions\api-key.ts", "TypeScript", 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 70
+"d:\Documentos\ContaSys\contasys\actions\auth.ts", "TypeScript", 145, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 188
+"d:\Documentos\ContaSys\contasys\actions\cliente.ts", "TypeScript", 145, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 176
+"d:\Documentos\ContaSys\contasys\actions\email.ts", "TypeScript", 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 92
+"d:\Documentos\ContaSys\contasys\actions\empresa.ts", "TypeScript", 309, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 378
+"d:\Documentos\ContaSys\contasys\actions\factura.ts", "TypeScript", 288, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 58, 346
+"d:\Documentos\ContaSys\contasys\actions\guia-remision.ts", "TypeScript", 136, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 152
+"d:\Documentos\ContaSys\contasys\actions\notificacion.ts", "TypeScript", 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 64
+"d:\Documentos\ContaSys\contasys\actions\pago.ts", "TypeScript", 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 80
+"d:\Documentos\ContaSys\contasys\actions\producto.ts", "TypeScript", 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 129
+"d:\Documentos\ContaSys\contasys\actions\recurrencia.ts", "TypeScript", 178, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 204
+"d:\Documentos\ContaSys\contasys\actions\retencion.ts", "TypeScript", 123, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 142
+"d:\Documentos\ContaSys\contasys\actions\sri.ts", "TypeScript", 129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 150
+"d:\Documentos\ContaSys\contasys\actions\suscripcion.ts", "TypeScript", 122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37, 159
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin-sidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 6, 75
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\dashboard\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 8, 104
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\empresas\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 73, 0, 0, 0, 0, 0, 0, 0, 0, 8, 81
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\finanzas\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 140, 0, 0, 0, 0, 0, 0, 0, 0, 10, 150
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\planes\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 5, 30
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\planes\plan-form.tsx", "TypeScript JSX", 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 4, 53
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\planes\plan-list.tsx", "TypeScript JSX", 0, 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 0, 0, 6, 77
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\soporte\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 3, 44
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\usuarios\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 6, 42
+"d:\Documentos\ContaSys\contasys\app\(admin)\admin\usuarios\usuarios-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 6, 87
+"d:\Documentos\ContaSys\contasys\app\(admin)\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 5, 29
+"d:\Documentos\ContaSys\contasys\app\(app)\app-sidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 134, 0, 0, 0, 0, 0, 0, 0, 0, 8, 142
+"d:\Documentos\ContaSys\contasys\app\(app)\app-topbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 77, 0, 0, 0, 0, 0, 0, 0, 0, 8, 85
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\[id]\cliente-facturas-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 79, 0, 0, 0, 0, 0, 0, 0, 0, 5, 84
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\[id]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 190, 0, 0, 0, 0, 0, 0, 0, 0, 16, 206
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\cliente-form.tsx", "TypeScript JSX", 0, 0, 0, 0, 181, 0, 0, 0, 0, 0, 0, 0, 0, 16, 197
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\clientes-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 118, 0, 0, 0, 0, 0, 0, 0, 0, 6, 124
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\importar\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 14, 124
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\nuevo\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"d:\Documentos\ContaSys\contasys\app\(app)\clientes\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 11, 107
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\api-keys\api-keys-client.tsx", "TypeScript JSX", 0, 0, 0, 0, 117, 0, 0, 0, 0, 0, 0, 0, 0, 10, 127
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\api-keys\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 6, 28
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\auditoria\auditoria-client.tsx", "TypeScript JSX", 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 8, 65
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\auditoria\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 5, 24
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\empresa\empresa-config-client.tsx", "TypeScript JSX", 0, 0, 0, 0, 249, 0, 0, 0, 0, 0, 0, 0, 0, 18, 267
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\empresa\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 6, 22
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\sri\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 75, 0, 0, 0, 0, 0, 0, 0, 0, 8, 83
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\usuarios\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 6, 25
+"d:\Documentos\ContaSys\contasys\app\(app)\configuracion\usuarios\usuarios-config-client.tsx", "TypeScript JSX", 0, 0, 0, 0, 126, 0, 0, 0, 0, 0, 0, 0, 0, 9, 135
+"d:\Documentos\ContaSys\contasys\app\(app)\cuentas-cobrar\cuentas-cobrar-content.tsx", "TypeScript JSX", 0, 0, 0, 0, 245, 0, 0, 0, 0, 0, 0, 0, 0, 15, 260
+"d:\Documentos\ContaSys\contasys\app\(app)\cuentas-cobrar\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 11, 73
+"d:\Documentos\ContaSys\contasys\app\(app)\dashboard\dashboard-charts.tsx", "TypeScript JSX", 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 5, 115
+"d:\Documentos\ContaSys\contasys\app\(app)\dashboard\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 253, 0, 0, 0, 0, 0, 0, 0, 0, 20, 273
+"d:\Documentos\ContaSys\contasys\app\(app)\dashboard\tipo-cambio.tsx", "TypeScript JSX", 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 0, 0, 5, 51
+"d:\Documentos\ContaSys\contasys\app\(app)\dashboard\top-productos-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 0, 0, 0, 3, 59
+"d:\Documentos\ContaSys\contasys\app\(app)\documentacion-api\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 0, 0, 0, 10, 95
+"d:\Documentos\ContaSys\contasys\app\(app)\empresa-selector.tsx", "TypeScript JSX", 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 4, 51
+"d:\Documentos\ContaSys\contasys\app\(app)\empresa\nueva\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 5, 67
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\[id]\factura-actions.tsx", "TypeScript JSX", 0, 0, 0, 0, 143, 0, 0, 0, 0, 0, 0, 0, 0, 15, 158
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\[id]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 241, 0, 0, 0, 0, 0, 0, 0, 0, 23, 264
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\factura-form.tsx", "TypeScript JSX", 0, 0, 0, 0, 300, 0, 0, 0, 0, 0, 0, 0, 0, 24, 324
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\facturas-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 115, 0, 0, 0, 0, 0, 0, 0, 0, 9, 124
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\guias\guias-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 0, 0, 8, 119
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\guias\nueva\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 174, 0, 0, 0, 0, 0, 0, 0, 0, 21, 195
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\guias\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 10, 68
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\nueva\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 6, 46
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 0, 12, 94
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\rapida\factura-rapida-form.tsx", "TypeScript JSX", 0, 0, 0, 0, 184, 0, 0, 0, 0, 0, 0, 0, 0, 15, 199
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\rapida\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 6, 47
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\recurrentes\nueva\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 7, 37
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\recurrentes\nueva\recurrente-form.tsx", "TypeScript JSX", 0, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 0, 21, 213
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\recurrentes\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 0, 8, 96
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\retenciones\nueva\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 143, 0, 0, 0, 0, 0, 0, 0, 0, 17, 160
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\retenciones\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 0, 0, 0, 10, 66
+"d:\Documentos\ContaSys\contasys\app\(app)\facturas\retenciones\retenciones-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 10, 130
+"d:\Documentos\ContaSys\contasys\app\(app)\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 68, 0, 0, 0, 0, 0, 0, 0, 0, 11, 79
+"d:\Documentos\ContaSys\contasys\app\(app)\notificaciones-panel.tsx", "TypeScript JSX", 0, 0, 0, 0, 104, 0, 0, 0, 0, 0, 0, 0, 0, 5, 109
+"d:\Documentos\ContaSys\contasys\app\(app)\onboarding\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 168, 0, 0, 0, 0, 0, 0, 0, 0, 15, 183
+"d:\Documentos\ContaSys\contasys\app\(app)\productos\[id]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 159, 0, 0, 0, 0, 0, 0, 0, 0, 14, 173
+"d:\Documentos\ContaSys\contasys\app\(app)\productos\importar\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 15, 101
+"d:\Documentos\ContaSys\contasys\app\(app)\productos\nuevo\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 5, 30
+"d:\Documentos\ContaSys\contasys\app\(app)\productos\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 0, 0, 13, 110
+"d:\Documentos\ContaSys\contasys\app\(app)\productos\producto-form.tsx", "TypeScript JSX", 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 10, 111
+"d:\Documentos\ContaSys\contasys\app\(app)\productos\productos-table.tsx", "TypeScript JSX", 0, 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 0, 0, 8, 119
+"d:\Documentos\ContaSys\contasys\app\(app)\reportes\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 9, 95
+"d:\Documentos\ContaSys\contasys\app\(app)\reportes\reportes-content.tsx", "TypeScript JSX", 0, 0, 0, 0, 329, 0, 0, 0, 0, 0, 0, 0, 0, 25, 354
+"d:\Documentos\ContaSys\contasys\app\(app)\suscripcion\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 6, 37
+"d:\Documentos\ContaSys\contasys\app\(app)\suscripcion\suscripcion-content.tsx", "TypeScript JSX", 0, 0, 0, 0, 196, 0, 0, 0, 0, 0, 0, 0, 0, 16, 212
+"d:\Documentos\ContaSys\contasys\app\(auth)\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 1, 12
+"d:\Documentos\ContaSys\contasys\app\(auth)\login\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 124, 0, 0, 0, 0, 0, 0, 0, 0, 12, 136
+"d:\Documentos\ContaSys\contasys\app\(auth)\recuperar\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 91, 0, 0, 0, 0, 0, 0, 0, 0, 10, 101
+"d:\Documentos\ContaSys\contasys\app\(auth)\registro\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 166, 0, 0, 0, 0, 0, 0, 0, 0, 15, 181
+"d:\Documentos\ContaSys\contasys\app\(auth)\restablecer\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 0, 0, 9, 80
+"d:\Documentos\ContaSys\contasys\app\(auth)\verificar\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 79, 0, 0, 0, 0, 0, 0, 0, 0, 8, 87
+"d:\Documentos\ContaSys\contasys\app\(marketing)\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 5, 115
+"d:\Documentos\ContaSys\contasys\app\(marketing)\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 766, 0, 0, 0, 0, 0, 0, 0, 0, 20, 786
+"d:\Documentos\ContaSys\contasys\app\(marketing)\precios\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9
+"d:\Documentos\ContaSys\contasys\app\(marketing)\privacidad\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 3, 61
+"d:\Documentos\ContaSys\contasys\app\(marketing)\terminos\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 3, 60
+"d:\Documentos\ContaSys\contasys\app\api\auth\callback\route.ts", "TypeScript", 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 61
+"d:\Documentos\ContaSys\contasys\app\api\auth\logout\route.ts", "TypeScript", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 11
+"d:\Documentos\ContaSys\contasys\app\api\clientes\exportar\route.ts", "TypeScript", 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 47
+"d:\Documentos\ContaSys\contasys\app\api\clientes\importar\route.ts", "TypeScript", 73, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 84
+"d:\Documentos\ContaSys\contasys\app\api\cron\recordatorios-cobro\route.ts", "TypeScript", 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 100
+"d:\Documentos\ContaSys\contasys\app\api\cron\recurrencias\route.ts", "TypeScript", 109, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 122
+"d:\Documentos\ContaSys\contasys\app\api\empresa\cambiar\route.ts", "TypeScript", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 21
+"d:\Documentos\ContaSys\contasys\app\api\paypal\webhook\route.ts", "TypeScript", 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 87
+"d:\Documentos\ContaSys\contasys\app\api\productos\exportar\route.ts", "TypeScript", 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 46
+"d:\Documentos\ContaSys\contasys\app\api\productos\importar\route.ts", "TypeScript", 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 67
+"d:\Documentos\ContaSys\contasys\app\api\v1\clientes\[id]\route.ts", "TypeScript", 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 75
+"d:\Documentos\ContaSys\contasys\app\api\v1\clientes\route.ts", "TypeScript", 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 68
+"d:\Documentos\ContaSys\contasys\app\api\v1\empresas\[id]\route.ts", "TypeScript", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 24
+"d:\Documentos\ContaSys\contasys\app\api\v1\empresas\route.ts", "TypeScript", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 25
+"d:\Documentos\ContaSys\contasys\app\api\v1\facturas\[id]\route.ts", "TypeScript", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 27
+"d:\Documentos\ContaSys\contasys\app\api\v1\facturas\route.ts", "TypeScript", 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 121
+"d:\Documentos\ContaSys\contasys\app\api\v1\openapi.json\route.ts", "TypeScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"d:\Documentos\ContaSys\contasys\app\api\v1\productos\[id]\route.ts", "TypeScript", 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 76
+"d:\Documentos\ContaSys\contasys\app\api\v1\productos\route.ts", "TypeScript", 59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 70
+"d:\Documentos\ContaSys\contasys\app\api\v1\reportes\route.ts", "TypeScript", 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 36
+"d:\Documentos\ContaSys\contasys\app\globals.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 125, 0, 0, 0, 0, 5, 130
+"d:\Documentos\ContaSys\contasys\app\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 5, 49
+"d:\Documentos\ContaSys\contasys\app\offline\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"d:\Documentos\ContaSys\contasys\components.json", "JSON", 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 26
+"d:\Documentos\ContaSys\contasys\components\facturas\factura-preview.tsx", "TypeScript JSX", 0, 0, 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 0, 9, 102
+"d:\Documentos\ContaSys\contasys\components\facturas\pago-dialog.tsx", "TypeScript JSX", 0, 0, 0, 0, 75, 0, 0, 0, 0, 0, 0, 0, 0, 5, 80
+"d:\Documentos\ContaSys\contasys\components\facturas\sri-panel.tsx", "TypeScript JSX", 0, 0, 0, 0, 124, 0, 0, 0, 0, 0, 0, 0, 0, 8, 132
+"d:\Documentos\ContaSys\contasys\components\sw-register.tsx", "TypeScript JSX", 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 4, 14
+"d:\Documentos\ContaSys\contasys\components\theme-toggle.tsx", "TypeScript JSX", 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 4, 22
+"d:\Documentos\ContaSys\contasys\components\ui\avatar.tsx", "TypeScript JSX", 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 10, 110
+"d:\Documentos\ContaSys\contasys\components\ui\badge.tsx", "TypeScript JSX", 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 5, 53
+"d:\Documentos\ContaSys\contasys\components\ui\button.tsx", "TypeScript JSX", 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 5, 59
+"d:\Documentos\ContaSys\contasys\components\ui\card.tsx", "TypeScript JSX", 0, 0, 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 0, 10, 104
+"d:\Documentos\ContaSys\contasys\components\ui\dialog.tsx", "TypeScript JSX", 0, 0, 0, 0, 147, 0, 0, 0, 0, 0, 0, 0, 0, 14, 161
+"d:\Documentos\ContaSys\contasys\components\ui\dropdown-menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0, 0, 19, 269
+"d:\Documentos\ContaSys\contasys\components\ui\input.tsx", "TypeScript JSX", 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 4, 21
+"d:\Documentos\ContaSys\contasys\components\ui\label.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 5, 21
+"d:\Documentos\ContaSys\contasys\components\ui\select.tsx", "TypeScript JSX", 0, 0, 0, 0, 188, 0, 0, 0, 0, 0, 0, 0, 0, 14, 202
+"d:\Documentos\ContaSys\contasys\components\ui\separator.tsx", "TypeScript JSX", 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 5, 26
+"d:\Documentos\ContaSys\contasys\components\ui\sheet.tsx", "TypeScript JSX", 0, 0, 0, 0, 125, 0, 0, 0, 0, 0, 0, 0, 0, 14, 139
+"d:\Documentos\ContaSys\contasys\components\ui\skeleton.tsx", "TypeScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14
+"d:\Documentos\ContaSys\contasys\components\ui\table.tsx", "TypeScript JSX", 0, 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 0, 12, 117
+"d:\Documentos\ContaSys\contasys\components\ui\textarea.tsx", "TypeScript JSX", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 4, 19
+"d:\Documentos\ContaSys\contasys\components\ui\tooltip.tsx", "TypeScript JSX", 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 8, 67
+"d:\Documentos\ContaSys\contasys\e2e\landing.spec.ts", "TypeScript", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 27
+"d:\Documentos\ContaSys\contasys\e2e\login.spec.ts", "TypeScript", 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 40
+"d:\Documentos\ContaSys\contasys\e2e\navegacion.spec.ts", "TypeScript", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 25
+"d:\Documentos\ContaSys\contasys\e2e\precios.spec.ts", "TypeScript", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14
+"d:\Documentos\ContaSys\contasys\e2e\registro.spec.ts", "TypeScript", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 20
+"d:\Documentos\ContaSys\contasys\eslint.config.mjs", "JavaScript", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 2, 3, 19
+"d:\Documentos\ContaSys\contasys\lib\__tests__\api-auth.test.ts", "TypeScript", 132, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 155
+"d:\Documentos\ContaSys\contasys\lib\__tests__\audit.test.ts", "TypeScript", 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 108
+"d:\Documentos\ContaSys\contasys\lib\__tests__\encryption.test.ts", "TypeScript", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 24
+"d:\Documentos\ContaSys\contasys\lib\__tests__\exchange-rates-integration.test.ts", "TypeScript", 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 49
+"d:\Documentos\ContaSys\contasys\lib\__tests__\exchange-rates.test.ts", "TypeScript", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 17
+"d:\Documentos\ContaSys\contasys\lib\__tests__\hash.test.ts", "TypeScript", 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 37
+"d:\Documentos\ContaSys\contasys\lib\__tests__\plan-limit.test.ts", "TypeScript", 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 125
+"d:\Documentos\ContaSys\contasys\lib\__tests__\sanitize.test.ts", "TypeScript", 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 40
+"d:\Documentos\ContaSys\contasys\lib\__tests__\setup.ts", "TypeScript", 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 33
+"d:\Documentos\ContaSys\contasys\lib\__tests__\utils.test.ts", "TypeScript", 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 49
+"d:\Documentos\ContaSys\contasys\lib\api-auth.ts", "TypeScript", 73, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 92
+"d:\Documentos\ContaSys\contasys\lib\audit.ts", "TypeScript", 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 30
+"d:\Documentos\ContaSys\contasys\lib\encryption.ts", "TypeScript", 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 30
+"d:\Documentos\ContaSys\contasys\lib\exchange-rates.ts", "TypeScript", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"d:\Documentos\ContaSys\contasys\lib\hash.ts", "TypeScript", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 10
+"d:\Documentos\ContaSys\contasys\lib\openapi.json", "JSON", 0, 167, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 168
+"d:\Documentos\ContaSys\contasys\lib\openapi.ts", "TypeScript", 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"d:\Documentos\ContaSys\contasys\lib\paypal\client.ts", "TypeScript", 91, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 100
+"d:\Documentos\ContaSys\contasys\lib\pdf\factura-pdf.tsx", "TypeScript JSX", 0, 0, 0, 0, 184, 0, 0, 0, 0, 0, 0, 0, 0, 9, 193
+"d:\Documentos\ContaSys\contasys\lib\plan-limit.ts", "TypeScript", 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 76
+"d:\Documentos\ContaSys\contasys\lib\prisma\client.ts", "TypeScript", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"d:\Documentos\ContaSys\contasys\lib\sanitize.ts", "TypeScript", 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 32
+"d:\Documentos\ContaSys\contasys\lib\sri\__tests__\clave-acceso.test.ts", "TypeScript", 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 92
+"d:\Documentos\ContaSys\contasys\lib\sri\__tests__\xml-generator.test.ts", "TypeScript", 94, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 107
+"d:\Documentos\ContaSys\contasys\lib\sri\clave-acceso.ts", "TypeScript", 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 58
+"d:\Documentos\ContaSys\contasys\lib\sri\firma-electronica.ts", "TypeScript", 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 74
+"d:\Documentos\ContaSys\contasys\lib\sri\mock-api.ts", "TypeScript", 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 46
+"d:\Documentos\ContaSys\contasys\lib\sri\sri-client.ts", "TypeScript", 103, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 123
+"d:\Documentos\ContaSys\contasys\lib\sri\xml-generator.ts", "TypeScript", 161, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 171
+"d:\Documentos\ContaSys\contasys\lib\supabase\admin.ts", "TypeScript", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 15
+"d:\Documentos\ContaSys\contasys\lib\supabase\client.ts", "TypeScript", 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"d:\Documentos\ContaSys\contasys\lib\supabase\middleware.ts", "TypeScript", 70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 84
+"d:\Documentos\ContaSys\contasys\lib\supabase\server.ts", "TypeScript", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 25
+"d:\Documentos\ContaSys\contasys\lib\utils.ts", "TypeScript", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 26
+"d:\Documentos\ContaSys\contasys\lib\validations\__tests__\auth.test.ts", "TypeScript", 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 73
+"d:\Documentos\ContaSys\contasys\lib\validations\__tests__\cliente.test.ts", "TypeScript", 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 48
+"d:\Documentos\ContaSys\contasys\lib\validations\__tests__\factura.test.ts", "TypeScript", 74, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 84
+"d:\Documentos\ContaSys\contasys\lib\validations\__tests__\producto.test.ts", "TypeScript", 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 51
+"d:\Documentos\ContaSys\contasys\lib\validations\api-key.ts", "TypeScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9
+"d:\Documentos\ContaSys\contasys\lib\validations\auth.ts", "TypeScript", 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 50
+"d:\Documentos\ContaSys\contasys\lib\validations\cliente.ts", "TypeScript", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 24
+"d:\Documentos\ContaSys\contasys\lib\validations\empresa.ts", "TypeScript", 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 53
+"d:\Documentos\ContaSys\contasys\lib\validations\factura.ts", "TypeScript", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 23
+"d:\Documentos\ContaSys\contasys\lib\validations\producto.ts", "TypeScript", 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 46
+"d:\Documentos\ContaSys\contasys\middleware.ts", "TypeScript", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"d:\Documentos\ContaSys\contasys\next.config.ts", "TypeScript", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 31
+"d:\Documentos\ContaSys\contasys\package-lock.json", "JSON", 0, 13057, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 13058
+"d:\Documentos\ContaSys\contasys\package.json", "JSON", 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 70
+"d:\Documentos\ContaSys\contasys\playwright-report\index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 82, 0, 8, 90
+"d:\Documentos\ContaSys\contasys\playwright.config.ts", "TypeScript", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"d:\Documentos\ContaSys\contasys\postcss.config.mjs", "JavaScript", 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 2, 8
+"d:\Documentos\ContaSys\contasys\prisma.config.ts", "TypeScript", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 13
+"d:\Documentos\ContaSys\contasys\public\file.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"d:\Documentos\ContaSys\contasys\public\globe.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"d:\Documentos\ContaSys\contasys\public\icons\icon.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 5
+"d:\Documentos\ContaSys\contasys\public\manifest.json", "JSON", 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 19
+"d:\Documentos\ContaSys\contasys\public\next.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"d:\Documentos\ContaSys\contasys\public\sw.js", "JavaScript", 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 4, 30
+"d:\Documentos\ContaSys\contasys\public\vercel.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"d:\Documentos\ContaSys\contasys\public\window.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"d:\Documentos\ContaSys\contasys\supabase\migrations\00001_init.sql", "MS SQL", 0, 0, 0, 205, 0, 0, 0, 0, 0, 0, 0, 0, 27, 19, 251
+"d:\Documentos\ContaSys\contasys\supabase\migrations\00002_rls.sql", "MS SQL", 0, 0, 0, 197, 0, 0, 0, 0, 0, 0, 0, 0, 55, 56, 308
+"d:\Documentos\ContaSys\contasys\supabase\seed.sql", "MS SQL", 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 4, 2, 11
+"d:\Documentos\ContaSys\contasys\test-results\.last-run.json", "JSON", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4
+"d:\Documentos\ContaSys\contasys\tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 1, 35
+"d:\Documentos\ContaSys\contasys\types\database.ts", "TypeScript", 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 91
+"d:\Documentos\ContaSys\contasys\types\factura.ts", "TypeScript", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 25
+"d:\Documentos\ContaSys\contasys\types\sri.ts", "TypeScript", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 25
+"d:\Documentos\ContaSys\contasys\vitest.config.ts", "TypeScript", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 20
+"Total", "-", 5494, 13355, 12164, 407, 10398, 34, 398, 9, 125, 485, 3605, 1618, 473, 6766, 55331

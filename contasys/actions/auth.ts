@@ -114,24 +114,6 @@ export async function login(
   redirect("/dashboard");
 }
 
-export async function signInWithGoogle(): Promise<never> {
-  const supabase = await createClient();
-  const origin = (await headers()).get("origin") ?? process.env.NEXT_PUBLIC_APP_URL;
-
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: "google",
-    options: {
-      redirectTo: `${origin}/api/auth/callback`,
-    },
-  });
-
-  if (error || !data.url) {
-    throw new Error(error?.message ?? "Error al iniciar sesión con Google");
-  }
-
-  redirect(data.url);
-}
-
 export async function recuperar(
   _prevState: AuthState | null,
   formData: FormData,
