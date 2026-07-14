@@ -62,17 +62,19 @@ export default function AuthPage() {
 
   return (
     <Card>
-      <CardHeader className="text-center">
+      <CardHeader className="text-center pb-0">
         <CardTitle>
           {activeTab === "login" ? "Iniciar Sesión" : "Crear Cuenta"}
         </CardTitle>
         <CardDescription>
           {activeTab === "login"
             ? "Ingresa a tu cuenta de ContaSys"
-            : "Completa tus datos para registrarte en ContaSys"}
+            : "Completa tus datos para registrarte"}
         </CardDescription>
+      </CardHeader>
 
-        <div className="mt-4 flex bg-muted rounded-lg p-1">
+      <CardContent className="pt-6">
+        <div className="flex bg-muted rounded-lg p-1 mb-6">
           <button
             type="button"
             onClick={() => setActiveTab("login")}
@@ -96,20 +98,18 @@ export default function AuthPage() {
             Registrarse
           </button>
         </div>
-      </CardHeader>
 
-      <CardContent>
         <div className="relative overflow-hidden">
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            className="flex w-[200%] transition-transform duration-500 ease-in-out"
             style={{ transform: activeTab === "login" ? "translateX(0)" : "translateX(-50%)" }}
           >
-            <div className="w-full flex-shrink-0">
+            <div className="w-1/2 flex-shrink-0 pr-1">
               <form action={loginFormAction} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="email">Correo electrónico</Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="email"
                       type="email"
@@ -134,7 +134,7 @@ export default function AuthPage() {
                     </Link>
                   </div>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="password"
                       type="password"
@@ -159,12 +159,12 @@ export default function AuthPage() {
               </form>
             </div>
 
-            <div className="w-full flex-shrink-0">
+            <div className="w-1/2 flex-shrink-0 pl-1">
               <form action={registerFormAction} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="nombre">Nombre completo</Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="nombre"
                       type="text"
@@ -181,7 +181,7 @@ export default function AuthPage() {
                 <div className="space-y-2">
                   <Label htmlFor="reg-email">Correo electrónico</Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="reg-email"
                       type="email"
@@ -198,7 +198,7 @@ export default function AuthPage() {
                 <div className="space-y-2">
                   <Label htmlFor="reg-password">Contraseña</Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="reg-password"
                       type="password"
@@ -215,7 +215,7 @@ export default function AuthPage() {
                 <div className="space-y-2">
                   <Label htmlFor="confirmarPassword">Confirmar contraseña</Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="confirmarPassword"
                       type="password"
