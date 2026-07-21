@@ -1,66 +1,75 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
-import { MailCheck, AlertCircle } from "lucide-react";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { useSearchParams } from "next/navigation";
+import { AlertCircle, Loader2, MailCheck } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 function VerificarContent() {
-  const searchParams = useSearchParams();
-  const verified = searchParams.get("verified");
+  const params = useSearchParams();
+  const [email, setEmail] = useState(params.get("email") ?? "");
+  const [pending, setPending] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const invalid = params.get("error") === "invalid";
 
-  const linkClass =
-    "inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-colors";
-  const primaryBtnClass =
-    `${linkClass} bg-primary text-primary-foreground hover:bg-primary/80`;
-  const outlineBtnClass =
-    `${linkClass} border-input bg-background hover:bg-accent hover:text-accent-foreground`;
-
-  if (verified === "true") {
-    return (
-      <Card>
-        <CardHeader className="text-center">
-          <div className="flex justify-center">
-            <MailCheck className="h-12 w-12 text-primary" />
-          </div>
-          <CardTitle>Correo Verificado</CardTitle>
-          <CardDescription>
-            Tu correo ha sido verificado exitosamente. Ya puedes iniciar sesión.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="text-center">
-          <Link href="/login" className={primaryBtnClass}>
-            Iniciar Sesión
-          </Link>
-        </CardContent>
-      </Card>
+  async function resend(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setPending(true);
+    setMessage(null);
+    const response = await fetch("/api/auth/resend-confirmation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    }).catch(() => null);
+    setPending(false);
+    setMessage(
+      response?.ok
+        ? "Si la cuenta requiere confirmación, enviamos un nuevo correo."
+        : "Escribe un correo válido e inténtalo nuevamente.",
     );
   }
 
   return (
     <Card>
       <CardHeader className="text-center">
-        <div className="flex justify-center">
-          <MailCheck className="h-12 w-12 text-primary" />
-        </div>
-        <CardTitle>Verifica tu Correo</CardTitle>
+        <MailCheck className="mx-auto h-12 w-12 text-primary" />
+        <CardTitle>{invalid ? "El enlace ya no es válido" : "Verifica tu correo"}</CardTitle>
         <CardDescription>
-          Te hemos enviado un enlace de verificación. Revisa tu bandeja de
-          entrada (y la carpeta de spam) para activar tu cuenta.
+          {invalid
+            ? "Solicita un nuevo correo de confirmación."
+            : "Confirma tu dirección para activar tu cuenta."}
         </CardDescription>
       </CardHeader>
-      <CardContent className="text-center">
-        <Link href="/login" className={outlineBtnClass}>
-          Ir a Iniciar Sesión
-        </Link>
+      <CardContent className="space-y-5">
+        <form onSubmit={resend} className="space-y-3">
+          <div className="space-y-2">
+            <Label htmlFor="email">Correo electrónico</Label>
+            <Input
+              id="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type="email"
+              autoComplete="email"
+              required
+            />
+          </div>
+          <Button type="submit" className="w-full" disabled={pending}>
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Reenviar correo de
+            confirmación
+          </Button>
+        </form>
+        {message && <p className="text-center text-sm text-muted-foreground">{message}</p>}
+        <p className="text-center text-sm text-muted-foreground">
+          <AlertCircle className="mr-1 inline h-4 w-4" />
+          Revisa también promociones o spam.{" "}
+          <Link href="/login" className="font-medium text-primary hover:underline">
+            Ir a iniciar sesión
+          </Link>
+        </p>
       </CardContent>
     </Card>
   );
@@ -72,10 +81,7 @@ export default function VerificarPage() {
       fallback={
         <Card>
           <CardHeader className="text-center">
-            <div className="flex justify-center">
-              <AlertCircle className="h-12 w-12 text-muted-foreground" />
-            </div>
-            <CardTitle>Cargando...</CardTitle>
+            <CardTitle>Cargando…</CardTitle>
           </CardHeader>
         </Card>
       }
