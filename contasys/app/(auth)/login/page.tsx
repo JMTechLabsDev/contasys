@@ -1,13 +1,10 @@
 "use client";
 
 import { useState, useActionState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { Loader2, Mail, Lock, User } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 import { login as loginAction, register as registerAction } from "@/actions/auth";
-import { loginSchema, registerSchema, type LoginInput, type RegisterInput } from "@/lib/validations/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,20 +20,6 @@ export default function AuthPage() {
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   const [loginState, loginFormAction, loginPending] = useActionState(loginAction, null);
   const [registerState, registerFormAction, registerPending] = useActionState(registerAction, null);
-
-  const {
-    register: loginFields,
-    formState: { errors: loginErrors },
-  } = useForm<LoginInput>({
-    resolver: zodResolver(loginSchema),
-  });
-
-  const {
-    register: registerFields,
-    formState: { errors: registerErrors },
-  } = useForm<RegisterInput>({
-    resolver: zodResolver(registerSchema),
-  });
 
   if (registerState?.success) {
     return (
@@ -107,25 +90,12 @@ export default function AuthPage() {
             <div className="w-1/2 flex-shrink-0 pr-1">
               <form action={loginFormAction} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="email"
-                      type="email"
-                      {...loginFields("email")}
-                      placeholder="correo@ejemplo.com"
-                      className="pl-10"
-                    />
-                  </div>
-                  {loginErrors.email && (
-                    <p className="text-sm text-destructive">{loginErrors.email.message}</p>
-                  )}
+                  <Label htmlFor="login-email">Correo electrónico</Label>
+                  <Input id="login-email" name="email" type="email" placeholder="correo@ejemplo.com" required />
                 </div>
-
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="password">Contraseña</Label>
+                    <Label htmlFor="login-password">Contraseña</Label>
                     <Link
                       href="/recuperar"
                       className="text-xs text-muted-foreground hover:text-primary"
@@ -133,25 +103,11 @@ export default function AuthPage() {
                       ¿Olvidaste tu contraseña?
                     </Link>
                   </div>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="password"
-                      type="password"
-                      {...loginFields("password")}
-                      placeholder="Tu contraseña"
-                      className="pl-10"
-                    />
-                  </div>
-                  {loginErrors.password && (
-                    <p className="text-sm text-destructive">{loginErrors.password.message}</p>
-                  )}
+                  <Input id="login-password" name="password" type="password" placeholder="Tu contraseña" required />
                 </div>
-
                 {loginState?.error && (
                   <p className="text-sm text-destructive">{loginState.error}</p>
                 )}
-
                 <Button type="submit" className="w-full" disabled={loginPending}>
                   {loginPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Iniciar Sesión
@@ -162,79 +118,24 @@ export default function AuthPage() {
             <div className="w-1/2 flex-shrink-0 pl-1">
               <form action={registerFormAction} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="nombre">Nombre completo</Label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="nombre"
-                      type="text"
-                      {...registerFields("nombre")}
-                      placeholder="Juan Pérez"
-                      className="pl-10"
-                    />
-                  </div>
-                  {registerErrors.nombre && (
-                    <p className="text-sm text-destructive">{registerErrors.nombre.message}</p>
-                  )}
+                  <Label htmlFor="reg-name">Nombre completo</Label>
+                  <Input id="reg-name" name="nombre" type="text" placeholder="Juan Pérez" required />
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="reg-email">Correo electrónico</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="reg-email"
-                      type="email"
-                      {...registerFields("email")}
-                      placeholder="correo@ejemplo.com"
-                      className="pl-10"
-                    />
-                  </div>
-                  {registerErrors.email && (
-                    <p className="text-sm text-destructive">{registerErrors.email.message}</p>
-                  )}
+                  <Input id="reg-email" name="email" type="email" placeholder="correo@ejemplo.com" required />
                 </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="reg-password">Contraseña</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="reg-password"
-                      type="password"
-                      {...registerFields("password")}
-                      placeholder="Mínimo 6 caracteres"
-                      className="pl-10"
-                    />
-                  </div>
-                  {registerErrors.password && (
-                    <p className="text-sm text-destructive">{registerErrors.password.message}</p>
-                  )}
+                  <Label htmlFor="reg-pass">Contraseña</Label>
+                  <Input id="reg-pass" name="password" type="password" placeholder="Mínimo 6 caracteres" required minLength={6} />
                 </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="confirmarPassword">Confirmar contraseña</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="confirmarPassword"
-                      type="password"
-                      {...registerFields("confirmarPassword")}
-                      placeholder="Repite la contraseña"
-                      className="pl-10"
-                    />
-                  </div>
-                  {registerErrors.confirmarPassword && (
-                    <p className="text-sm text-destructive">
-                      {registerErrors.confirmarPassword.message}
-                    </p>
-                  )}
+                  <Label htmlFor="reg-confirm">Confirmar contraseña</Label>
+                  <Input id="reg-confirm" name="confirmarPassword" type="password" placeholder="Repite la contraseña" required />
                 </div>
-
                 {registerState?.error && (
                   <p className="text-sm text-destructive">{registerState.error}</p>
                 )}
-
                 <Button type="submit" className="w-full" disabled={registerPending}>
                   {registerPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Crear Cuenta
