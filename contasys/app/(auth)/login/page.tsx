@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
 import { login as loginAction, register as registerAction } from "@/actions/auth";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -108,10 +107,10 @@ export default function AuthPage() {
                 {loginState?.error && (
                   <p className="text-sm text-destructive">{loginState.error}</p>
                 )}
-                <Button type="submit" className="w-full" disabled={loginPending}>
+                <button type="submit" className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground h-9 px-4 text-sm font-medium hover:bg-primary/80 transition-all disabled:opacity-50 disabled:pointer-events-none" disabled={loginPending}>
                   {loginPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Iniciar Sesión
-                </Button>
+                </button>
               </form>
             </div>
 
@@ -136,10 +135,10 @@ export default function AuthPage() {
                 {registerState?.error && (
                   <p className="text-sm text-destructive">{registerState.error}</p>
                 )}
-                <Button type="submit" className="w-full" disabled={registerPending}>
+                <button type="submit" className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground h-9 px-4 text-sm font-medium hover:bg-primary/80 transition-all disabled:opacity-50 disabled:pointer-events-none" disabled={registerPending}>
                   {registerPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Crear Cuenta
-                </Button>
+                </button>
               </form>
             </div>
           </div>
