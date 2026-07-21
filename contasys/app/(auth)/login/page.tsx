@@ -4,7 +4,7 @@ import { useState, useActionState } from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
-import { login as loginAction, register as registerAction } from "@/actions/auth";
+import { login as loginAction } from "@/actions/auth";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -18,9 +18,45 @@ import {
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   const [loginState, loginFormAction, loginPending] = useActionState(loginAction, null);
-  const [registerState, registerFormAction, registerPending] = useActionState(registerAction, null);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const [registerError, setRegisterError] = useState<string | null>(null);
+  const [registerPending, setRegisterPending] = useState(false);
 
-  if (registerState?.success) {
+  async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setRegisterError(null);
+    setRegisterPending(true);
+
+    const form = e.currentTarget;
+    const data = {
+      nombre: (form.nombre as HTMLInputElement).value,
+      email: (form.email as HTMLInputElement).value,
+      password: (form.password as HTMLInputElement).value,
+      confirmarPassword: (form.confirmarPassword as HTMLInputElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setRegisterSuccess(true);
+      } else {
+        setRegisterError(result.error || "Error al registrar");
+      }
+    } catch {
+      setRegisterError("Error de conexión");
+    } finally {
+      setRegisterPending(false);
+    }
+  }
+
+  if (registerSuccess) {
     return (
       <Card>
         <CardHeader className="text-center">
@@ -107,7 +143,11 @@ export default function AuthPage() {
                 {loginState?.error && (
                   <p className="text-sm text-destructive">{loginState.error}</p>
                 )}
-                <button type="submit" className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground h-9 px-4 text-sm font-medium hover:bg-primary/80 transition-all disabled:opacity-50 disabled:pointer-events-none" disabled={loginPending}>
+                <button
+                  type="submit"
+                  className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground h-9 px-4 text-sm font-medium hover:bg-primary/80 transition-all disabled:opacity-50 disabled:pointer-events-none"
+                  disabled={loginPending}
+                >
                   {loginPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Iniciar Sesión
                 </button>
@@ -115,27 +155,60 @@ export default function AuthPage() {
             </div>
 
             <div className="w-1/2 flex-shrink-0 pl-1">
-              <form action={registerFormAction} className="space-y-4">
+              <form onSubmit={handleRegister} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="reg-name">Nombre completo</Label>
-                  <Input id="reg-name" name="nombre" type="text" placeholder="Juan Pérez" required />
+                  <input
+                    id="reg-name"
+                    name="nombre"
+                    type="text"
+                    placeholder="Juan Pérez"
+                    required
+                    className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="reg-email">Correo electrónico</Label>
-                  <Input id="reg-email" name="email" type="email" placeholder="correo@ejemplo.com" required />
+                  <input
+                    id="reg-email"
+                    name="email"
+                    type="email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                    className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="reg-pass">Contraseña</Label>
-                  <Input id="reg-pass" name="password" type="password" placeholder="Mínimo 6 caracteres" required minLength={6} />
+                  <input
+                    id="reg-pass"
+                    name="password"
+                    type="password"
+                    placeholder="Mínimo 6 caracteres"
+                    required
+                    minLength={6}
+                    className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="reg-confirm">Confirmar contraseña</Label>
-                  <Input id="reg-confirm" name="confirmarPassword" type="password" placeholder="Repite la contraseña" required />
+                  <input
+                    id="reg-confirm"
+                    name="confirmarPassword"
+                    type="password"
+                    placeholder="Repite la contraseña"
+                    required
+                    className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  />
                 </div>
-                {registerState?.error && (
-                  <p className="text-sm text-destructive">{registerState.error}</p>
+                {registerError && (
+                  <p className="text-sm text-destructive">{registerError}</p>
                 )}
-                <button type="submit" className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground h-9 px-4 text-sm font-medium hover:bg-primary/80 transition-all disabled:opacity-50 disabled:pointer-events-none" disabled={registerPending}>
+                <button
+                  type="submit"
+                  className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground h-9 px-4 text-sm font-medium hover:bg-primary/80 transition-all disabled:opacity-50 disabled:pointer-events-none"
+                  disabled={registerPending}
+                >
                   {registerPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Crear Cuenta
                 </button>
