@@ -37,28 +37,18 @@ export async function register(
 
     const { nombre, email, password } = parsed.data;
 
-    const supabaseAdmin = createAdminClient();
+    const supabase = await createClient();
 
-    const { error: authError } = await supabaseAdmin.auth.admin.createUser({
+    const { error: authError } = await supabase.auth.signUp({
       email,
       password,
-      email_confirm: false,
-      user_metadata: { nombre, rol_plataforma: "usuario" },
+      options: {
+        data: { nombre, rol_plataforma: "usuario" },
+      },
     });
 
     if (authError) {
       return { error: authError.message };
-    }
-
-    const supabase = await createClient();
-
-    const { error: signInError } = await supabase.auth.signInWithOtp({
-      email,
-      options: { shouldCreateUser: false },
-    });
-
-    if (signInError) {
-      return { error: signInError.message };
     }
 
     return { success: true };
