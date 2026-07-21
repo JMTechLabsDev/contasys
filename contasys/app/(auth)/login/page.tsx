@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useActionState } from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
 import { login as loginAction, register as registerAction } from "@/actions/auth";
-import type { AuthState } from "@/actions/auth";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,42 +17,11 @@ import {
 } from "@/components/ui/card";
 
 export default function AuthPage() {
-  const router = useRouter();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
-  const [registerSuccess, setRegisterSuccess] = useState(false);
-  const [loginError, setLoginError] = useState<string | null>(null);
-  const [registerError, setRegisterError] = useState<string | null>(null);
-  const [pending, setPending] = useState(false);
-  const loginRef = useRef<HTMLFormElement>(null);
-  const registerRef = useRef<HTMLFormElement>(null);
+  const [loginState, loginFormAction, loginPending] = useActionState(loginAction, null);
+  const [registerState, registerFormAction, registerPending] = useActionState(registerAction, null);
 
-  async function handleLogin(formData: FormData) {
-    setLoginError(null);
-    setPending(true);
-    try {
-      const result = await loginAction(null, formData);
-    } finally {
-      setPending(false);
-    }
-  }
-
-  async function handleRegister(formData: FormData) {
-    setRegisterError(null);
-    setPending(true);
-    try {
-      const result = await registerAction(null, formData);
-      if (result && typeof result === "object") {
-        if ((result as AuthState).success) setRegisterSuccess(true);
-        if ((result as AuthState).error) setRegisterError((result as AuthState).error!);
-      }
-    } catch {
-      setRegisterError("Error de conexión");
-    } finally {
-      setPending(false);
-    }
-  }
-
-  if (registerSuccess) {
+  if (registerState?.success) {
     return (
       <Card>
         <CardHeader className="text-center">
@@ -121,7 +88,7 @@ export default function AuthPage() {
             style={{ transform: activeTab === "login" ? "translateX(0)" : "translateX(-50%)" }}
           >
             <div className="w-1/2 flex-shrink-0 pr-1">
-              <form ref={loginRef} onSubmit={(e) => { e.preventDefault(); handleLogin(new FormData(e.currentTarget)); }} className="space-y-4">
+              <form action={loginFormAction} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="login-email">Correo electrónico</Label>
                   <Input id="login-email" name="email" type="email" placeholder="correo@ejemplo.com" required />
@@ -138,18 +105,18 @@ export default function AuthPage() {
                   </div>
                   <Input id="login-password" name="password" type="password" placeholder="Tu contraseña" required />
                 </div>
-                {loginError && (
-                  <p className="text-sm text-destructive">{loginError}</p>
+                {loginState?.error && (
+                  <p className="text-sm text-destructive">{loginState.error}</p>
                 )}
-                <Button type="submit" className="w-full" disabled={pending}>
-                  {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                <Button type="submit" className="w-full" disabled={loginPending}>
+                  {loginPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Iniciar Sesión
                 </Button>
               </form>
             </div>
 
             <div className="w-1/2 flex-shrink-0 pl-1">
-              <form ref={registerRef} onSubmit={(e) => { e.preventDefault(); handleRegister(new FormData(e.currentTarget)); }} className="space-y-4">
+              <form action={registerFormAction} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="reg-name">Nombre completo</Label>
                   <Input id="reg-name" name="nombre" type="text" placeholder="Juan Pérez" required />
@@ -166,11 +133,11 @@ export default function AuthPage() {
                   <Label htmlFor="reg-confirm">Confirmar contraseña</Label>
                   <Input id="reg-confirm" name="confirmarPassword" type="password" placeholder="Repite la contraseña" required />
                 </div>
-                {registerError && (
-                  <p className="text-sm text-destructive">{registerError}</p>
+                {registerState?.error && (
+                  <p className="text-sm text-destructive">{registerState.error}</p>
                 )}
-                <Button type="submit" className="w-full" disabled={pending}>
-                  {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                <Button type="submit" className="w-full" disabled={registerPending}>
+                  {registerPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Crear Cuenta
                 </Button>
               </form>
