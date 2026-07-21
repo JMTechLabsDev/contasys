@@ -23,44 +23,48 @@ export async function register(
   _prevState: AuthState | null,
   formData: FormData,
 ): Promise<AuthState> {
-  const parsed = registerSchema.safeParse({
-    nombre: formData.get("nombre"),
-    email: formData.get("email"),
-    password: formData.get("password"),
-    confirmarPassword: formData.get("confirmarPassword"),
-  });
+  try {
+    const parsed = registerSchema.safeParse({
+      nombre: formData.get("nombre"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+      confirmarPassword: formData.get("confirmarPassword"),
+    });
 
-  if (!parsed.success) {
-    return { error: parsed.error.issues[0].message };
+    if (!parsed.success) {
+      return { error: parsed.error.issues[0].message };
+    }
+
+    const { nombre, email, password } = parsed.data;
+
+    const supabaseAdmin = createAdminClient();
+
+    const { error: authError } = await supabaseAdmin.auth.admin.createUser({
+      email,
+      password,
+      email_confirm: false,
+      user_metadata: { nombre, rol_plataforma: "usuario" },
+    });
+
+    if (authError) {
+      return { error: authError.message };
+    }
+
+    const supabase = await createClient();
+
+    const { error: signInError } = await supabase.auth.signInWithOtp({
+      email,
+      options: { shouldCreateUser: false },
+    });
+
+    if (signInError) {
+      return { error: signInError.message };
+    }
+
+    return { success: true };
+  } catch (err) {
+    return { error: err instanceof Error ? err.message : "Error desconocido" };
   }
-
-  const { nombre, email, password } = parsed.data;
-
-  const supabaseAdmin = createAdminClient();
-
-  const { error: authError } = await supabaseAdmin.auth.admin.createUser({
-    email,
-    password,
-    email_confirm: false,
-    user_metadata: { nombre, rol_plataforma: "usuario" },
-  });
-
-  if (authError) {
-    return { error: authError.message };
-  }
-
-  const supabase = await createClient();
-
-  const { error: signInError } = await supabase.auth.signInWithOtp({
-    email,
-    options: { shouldCreateUser: false },
-  });
-
-  if (signInError) {
-    return { error: signInError.message };
-  }
-
-  return { success: true };
 }
 
 export async function login(
