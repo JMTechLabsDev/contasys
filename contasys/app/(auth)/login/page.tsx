@@ -27,12 +27,12 @@ export default function AuthPage() {
     setRegisterError(null);
     setRegisterPending(true);
 
-    const form = e.currentTarget;
+    const fd = new FormData(e.currentTarget);
     const data = {
-      nombre: (form.nombre as HTMLInputElement).value,
-      email: (form.email as HTMLInputElement).value,
-      password: (form.password as HTMLInputElement).value,
-      confirmarPassword: (form.confirmarPassword as HTMLInputElement).value,
+      nombre: fd.get("nombre") as string,
+      email: fd.get("email") as string,
+      password: fd.get("password") as string,
+      confirmarPassword: fd.get("confirmarPassword") as string,
     };
 
     try {
