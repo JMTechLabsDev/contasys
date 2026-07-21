@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useTransition, useRef } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
 import { login as loginAction, register as registerAction } from "@/actions/auth";
 import type { AuthState } from "@/actions/auth";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,35 +19,39 @@ import {
 } from "@/components/ui/card";
 
 export default function AuthPage() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
   const [registerError, setRegisterError] = useState<string | null>(null);
-  const [pending, startTransition] = useTransition();
+  const [pending, setPending] = useState(false);
   const loginRef = useRef<HTMLFormElement>(null);
   const registerRef = useRef<HTMLFormElement>(null);
 
   async function handleLogin(formData: FormData) {
     setLoginError(null);
-    startTransition(async () => {
+    setPending(true);
+    try {
       const result = await loginAction(null, formData);
-      if (result) {
-        const r = result as AuthState;
-        if (r.error) setLoginError(r.error);
-      }
-    });
+    } finally {
+      setPending(false);
+    }
   }
 
   async function handleRegister(formData: FormData) {
     setRegisterError(null);
-    startTransition(async () => {
+    setPending(true);
+    try {
       const result = await registerAction(null, formData);
-      if (result) {
-        const r = result as AuthState;
-        if (r.success) setRegisterSuccess(true);
-        if (r.error) setRegisterError(r.error);
+      if (result && typeof result === "object") {
+        if ((result as AuthState).success) setRegisterSuccess(true);
+        if ((result as AuthState).error) setRegisterError((result as AuthState).error!);
       }
-    });
+    } catch {
+      setRegisterError("Error de conexión");
+    } finally {
+      setPending(false);
+    }
   }
 
   if (registerSuccess) {
